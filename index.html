@@ -3,185 +3,246 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Global Team Partners × LDS Inc. | Presentation Hub & Workspace CRM</title>
-  <meta name="description" content="Интерактивный презентационный хаб и Workspace CRM для «Р. П. ГОСТ / La Dagon Sector Inc.» (100PRO Records)">
+  <title>Global Team Partners × LDS Inc. | Продюсерский Хаб & Воркспейс (100PRO)</title>
+  <meta name="description" content="Интегрированная система релизов, интерактивных заметок, канбан-задач и презентации для «Р. П. ГОСТ / La Dagon Sector Inc.» (100PRO Records)">
   
+  <!-- GOOGLE FONTS (Like kmv-sales-hub: Playfair Display + Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #08090a;
-      --card-bg: #121417;
-      --card-hover: #191c21;
-      --border: #22262d;
-      --border-accent: #333a44;
-      --text: #e6ece8;
-      --text-muted: #8b949e;
-      --text-dim: #606770;
+      --bg-base: #0B0E14;
+      --bg-surface: #121721;
+      --bg-card: #18202E;
+      --bg-card-hover: #202b3d;
       
-      --accent-rust: #d94823;
-      --accent-rust-glow: rgba(217, 72, 35, 0.35);
-      --accent-steel: #7a8288;
-      --accent-green: #2ea043;
-      --accent-green-bg: rgba(46, 160, 67, 0.15);
-      --accent-blue: #58a6ff;
-      --accent-blue-bg: rgba(88, 166, 255, 0.15);
-      --accent-yellow: #d29922;
-      --accent-yellow-bg: rgba(210, 153, 34, 0.15);
-      --accent-purple: #bc8cff;
-      --accent-purple-bg: rgba(188, 140, 255, 0.15);
+      --gold: #C5A059;
+      --gold-light: #E0C07A;
+      --gold-glow: rgba(197, 160, 89, 0.25);
+      
+      --rust: #D94823;
+      --rust-light: #FF7B72;
+      --rust-glow: rgba(217, 72, 35, 0.3);
 
+      --steel: #7A8288;
+      --green: #10B981;
+      --green-bg: rgba(16, 185, 129, 0.15);
+      --blue: #2563EB;
+      --blue-bg: rgba(37, 99, 235, 0.15);
+      --purple: #8B5CF6;
+      --purple-bg: rgba(139, 92, 246, 0.15);
+      --red: #EF4444;
+
+      --white: #F8FAFC;
+      --text-dim: #94A3B8;
+      --border: rgba(197, 160, 89, 0.25);
+      --border-card: rgba(255, 255, 255, 0.09);
+      --border-card-hover: rgba(197, 160, 89, 0.45);
+
+      --radius-sm: 8px;
       --radius: 12px;
-      --shadow: 0 10px 30px rgba(0,0,0,0.6);
+      --radius-lg: 16px;
+      --shadow: 0 12px 36px rgba(0,0,0,0.65);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.5;
+      background-color: var(--bg-base);
+      color: var(--white);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.55;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
-    /* TOP HEADER */
+    /* HEADER (Style matching kmv-sales-hub) */
     header {
-      background: linear-gradient(180deg, #15181e 0%, #0a0c0e 100%);
-      border-bottom: 1px solid var(--border);
-      padding: 1.1rem 1.5rem;
+      background: linear-gradient(180deg, #161D2A 0%, var(--bg-base) 100%);
+      border-bottom: 2px solid var(--border);
+      padding: 40px 20px 28px;
+      text-align: center;
+      position: relative;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .brand-pill {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--gold);
+      background: rgba(197, 160, 89, 0.12);
+      color: var(--gold-light);
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.35rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+    h1 .cross { color: var(--gold); font-weight: 300; padding: 0 4px; }
+    h1 .highlight { color: var(--gold-light); }
+    .subtitle {
+      max-width: 820px;
+      margin: 0 auto 18px;
+      font-size: 0.98rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+    .partner-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    /* TOP ACTION BAR */
+    .top-action-bar {
+      max-width: 1300px;
+      margin: 16px auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 0 10px;
+    }
+    .role-toggle {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: 999px;
+      padding: 4px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+    }
+    .role-toggle select {
+      background: transparent;
+      border: none;
+      color: var(--gold-light);
+      font-weight: 700;
+      font-size: 0.82rem;
+      outline: none;
+      cursor: pointer;
+    }
+    .btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      color: var(--white);
+      padding: 7px 15px;
+      border-radius: var(--radius-sm);
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: var(--bg-card);
+      border-color: var(--gold);
+      color: var(--gold-light);
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), #967431);
+      border-color: var(--gold-light);
+      color: #0B0E14;
+      font-weight: 700;
+    }
+    .btn-gold:hover {
+      background: linear-gradient(135deg, #d4ae63, var(--gold));
+      color: #000;
+      box-shadow: 0 0 16px var(--gold-glow);
+    }
+    .btn-rust {
+      background: linear-gradient(135deg, var(--rust), #9e2a0c);
+      border-color: #ff7b72;
+      color: #fff;
+      font-weight: 700;
+    }
+    .btn-rust:hover {
+      background: #e6522c;
+      box-shadow: 0 0 16px var(--rust-glow);
+    }
+
+    /* STATS BAR (Exactly as in kmv-sales-hub) */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      max-width: 1300px;
+      margin: 24px auto;
+      padding: 0 20px;
+    }
+    .stat-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      text-align: center;
+      transition: all 0.25s ease;
+    }
+    .stat-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+    .stat-num {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1.15;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    /* NAVIGATION TABS */
+    .nav-tabs-wrapper {
+      background: #0E121A;
+      border-top: 1px solid var(--border-card);
+      border-bottom: 1px solid var(--border-card);
       position: sticky;
       top: 0;
       z-index: 100;
       backdrop-filter: blur(12px);
     }
-    .header-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .brand-block {
-      display: flex;
-      align-items: center;
-      gap: 0.9rem;
-    }
-    .brand-logo {
-      width: 44px;
-      height: 44px;
-      background: linear-gradient(135deg, var(--accent-rust), #5c1806);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      font-size: 1.15rem;
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.25);
-      box-shadow: 0 0 16px var(--accent-rust-glow);
-    }
-    .brand-info h1 {
-      font-size: 1.15rem;
-      font-weight: 800;
-      letter-spacing: -0.01em;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .brand-info p {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.2rem 0.55rem;
-      border-radius: 999px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-    .badge-rust { background: var(--accent-rust-glow); color: #ff7b72; border: 1px solid rgba(217, 72, 35, 0.4); }
-    .badge-green { background: var(--accent-green-bg); color: #3fb950; border: 1px solid rgba(46, 160, 67, 0.4); }
-    .badge-blue { background: var(--accent-blue-bg); color: var(--accent-blue); border: 1px solid rgba(88, 166, 255, 0.4); }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-    }
-    .role-selector {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 0.4rem 0.75rem;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .role-selector select {
-      background: transparent;
-      border: none;
-      color: var(--accent-blue);
-      font-weight: 700;
-      font-size: 0.8rem;
-      outline: none;
-      cursor: pointer;
-    }
-
-    .btn {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 0.45rem 0.85rem;
-      border-radius: 6px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: all 0.2s ease;
-      text-decoration: none;
-    }
-    .btn:hover {
-      background: var(--card-hover);
-      border-color: var(--border-accent);
-      color: #fff;
-    }
-    .btn-primary {
-      background: var(--accent-rust);
-      border-color: #b03819;
-      color: #fff;
-    }
-    .btn-primary:hover {
-      background: #e6522c;
-      box-shadow: 0 0 14px var(--accent-rust-glow);
-    }
-
-    /* NAVIGATION TABS */
-    .nav-bar {
-      background: #0d0f12;
-      border-bottom: 1px solid var(--border);
-      padding: 0.25rem 1.5rem;
-      position: sticky;
-      top: 67px;
-      z-index: 90;
-      backdrop-filter: blur(8px);
-    }
     .nav-tabs {
-      max-width: 1400px;
+      max-width: 1300px;
       margin: 0 auto;
       display: flex;
-      gap: 0.5rem;
+      gap: 4px;
+      padding: 4px 20px;
       overflow-x: auto;
       scrollbar-width: none;
     }
@@ -190,1096 +251,1013 @@
       background: transparent;
       border: none;
       border-bottom: 2px solid transparent;
-      color: var(--text-muted);
-      padding: 0.75rem 1rem;
+      color: var(--text-dim);
+      padding: 12px 16px;
       font-size: 0.88rem;
       font-weight: 600;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 6px;
       white-space: nowrap;
       transition: all 0.2s;
     }
-    .tab-btn:hover {
-      color: var(--text);
-    }
+    .tab-btn:hover { color: var(--white); }
     .tab-btn.active {
-      color: #fff;
-      border-bottom-color: var(--accent-rust);
+      color: var(--gold-light);
+      border-bottom-color: var(--gold);
       font-weight: 700;
     }
-    .tab-btn-highlight {
-      color: #ff977d;
-      background: rgba(217, 72, 35, 0.1);
-      border-radius: 6px 6px 0 0;
-    }
     .tab-badge {
-      font-size: 0.7rem;
-      padding: 0.1rem 0.4rem;
+      font-size: 0.72rem;
+      padding: 1px 6px;
       border-radius: 999px;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      color: var(--text-dim);
+    }
+    .tab-btn.active .tab-badge {
+      background: rgba(197, 160, 89, 0.2);
+      border-color: var(--gold);
+      color: var(--gold-light);
     }
 
-    /* MAIN CONTAINER */
-    main {
-      flex: 1;
-      max-width: 1400px;
+    /* CONTAINER & TAB PANES */
+    .container {
+      max-width: 1300px;
+      margin: 24px auto 60px;
+      padding: 0 20px;
       width: 100%;
-      margin: 1.5rem auto;
-      padding: 0 1.5rem;
+      flex: 1;
     }
-    .tab-content { display: none; }
-    .tab-content.active { display: block; animation: fadeIn 0.25s ease-in-out; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; animation: tabFade 0.25s ease-in-out; }
+    @keyframes tabFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    .section-heading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-desc {
+      color: var(--text-dim);
+      font-size: 0.92rem;
+      margin: -10px 0 20px;
+    }
 
     /* ========================================================
-       PRESENTATION DECK (PITCH SHOWCASE)
+       TAB 1: ЗАМЕТКИ И БЛОКНОТ АРТИСТА (NOTES ENGINE)
        ======================================================== */
-    .deck-container {
-      max-width: 1100px;
-      margin: 0 auto 2.5rem;
-      background: #0f1115;
-      border: 1px solid var(--border-accent);
+    .notes-toolbar {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
       border-radius: var(--radius);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
-      overflow: hidden;
-      position: relative;
-    }
-    .deck-topbar {
-      background: #14171d;
-      border-bottom: 1px solid var(--border);
-      padding: 0.75rem 1.25rem;
+      padding: 14px 18px;
+      margin-bottom: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 1rem;
+      gap: 12px;
       flex-wrap: wrap;
     }
-    .deck-slide-title {
+    .notes-search {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-base);
+      border: 1px solid var(--border-card);
+      border-radius: 999px;
+      padding: 6px 14px;
+      flex: 1;
+      max-width: 380px;
+    }
+    .notes-search input {
+      background: transparent;
+      border: none;
+      color: var(--white);
       font-size: 0.85rem;
+      outline: none;
+      width: 100%;
+    }
+    .notes-filter-pills {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .note-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      color: var(--text-dim);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .note-pill.active {
+      background: rgba(197, 160, 89, 0.2);
+      border-color: var(--gold);
+      color: var(--gold-light);
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+    .note-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      position: relative;
+      transition: all 0.25s ease;
+      min-height: 190px;
+    }
+    .note-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    .note-card.pinned {
+      border-color: var(--gold);
+      background: linear-gradient(180deg, rgba(197, 160, 89, 0.08) 0%, var(--bg-surface) 100%);
+    }
+    .note-card.pinned::before {
+      content: '📌 ЗАКРЕПЛЕНО';
+      position: absolute;
+      top: -10px;
+      right: 16px;
+      background: var(--gold);
+      color: #000;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+    .note-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .note-title {
+      font-size: 1.05rem;
       font-weight: 700;
-      color: var(--text-muted);
+      color: var(--white);
+      line-height: 1.35;
+    }
+    .note-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .tag-lyrics { background: var(--purple-bg); color: var(--purple); }
+    .tag-track { background: var(--rust-glow); color: var(--rust-light); }
+    .tag-meeting { background: var(--blue-bg); color: #60a5fa; }
+    .tag-100pro { background: var(--gold-glow); color: var(--gold-light); }
+    .tag-general { background: rgba(255,255,255,0.08); color: var(--text-dim); }
+
+    .note-body {
+      font-size: 0.86rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+      flex: 1;
+    }
+    .note-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 10px;
+      font-size: 0.74rem;
+      color: var(--text-dim);
+    }
+    .note-actions { display: flex; gap: 6px; }
+    .btn-icon {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-dim);
+      padding: 3px 6px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.78rem;
+    }
+    .btn-icon:hover { color: var(--white); background: rgba(255,255,255,0.08); border-color: var(--border-card); }
+
+    /* ========================================================
+       TAB 2: ИНТЕРАКТИВНЫЕ ЗАДАЧИ & КАНБАН (TASKS ENGINE)
+       ======================================================== */
+    .task-quick-add {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .task-quick-add input[type="text"] {
+      background: var(--bg-base);
+      border: 1px solid var(--border-card);
+      color: var(--white);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      flex: 1;
+      min-width: 240px;
+      outline: none;
+    }
+    .task-quick-add input[type="text"]:focus { border-color: var(--gold); }
+    .task-quick-add select {
+      background: var(--bg-base);
+      border: 1px solid var(--border-card);
+      color: var(--white);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      outline: none;
+    }
+
+    .kanban-board {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      overflow-x: auto;
+      padding-bottom: 14px;
+    }
+    @media (max-width: 1024px) { .kanban-board { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .kanban-board { grid-template-columns: 1fr; } }
+
+    .kanban-column {
+      background: #0E1218;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-height: 480px;
+    }
+    .kanban-col-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-card);
+    }
+    .col-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .col-count {
+      background: var(--bg-card);
+      font-size: 0.72rem;
+      padding: 1px 6px;
+      border-radius: 999px;
+      color: var(--text-dim);
+    }
+    .kanban-cards-box {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+    .task-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      cursor: grab;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .task-item:hover {
+      border-color: var(--border-card-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    }
+    .task-item-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .task-priority {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .p-high { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+    .p-med { background: rgba(210, 153, 34, 0.2); color: #fbbf24; }
+    .p-normal { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; }
+
+    .task-name { font-size: 0.88rem; font-weight: 700; color: var(--white); }
+    .task-sub { font-size: 0.78rem; color: var(--text-dim); }
+    .task-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 6px;
+    }
+    .task-btn-move {
+      background: transparent;
+      border: none;
+      color: var(--gold-light);
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .task-btn-move:hover { text-decoration: underline; }
+
+    /* ========================================================
+       TAB 3: ПРЕЗЕНТАЦИЯ PITCH DECK (WITH 16:9 IMAGES)
+       ======================================================== */
+    .deck-frame {
+      background: #0E1219;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+    .deck-top {
+      background: #141A24;
+      border-bottom: 1px solid var(--border-card);
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .deck-slide-indicator {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--gold-light);
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
-    .deck-controls-top {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .slide-wrapper {
+    .deck-stage {
       position: relative;
-      min-height: 540px;
+      min-height: 520px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       overflow: hidden;
     }
-    .slide-img-bg {
+    .deck-bg-img {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
-      filter: brightness(0.65) contrast(1.1);
-      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+      filter: brightness(0.6) contrast(1.1);
+      transition: transform 0.5s ease;
     }
-    .deck-container:hover .slide-img-bg {
-      transform: scale(1.02);
-    }
-    .slide-overlay {
+    .deck-frame:hover .deck-bg-img { transform: scale(1.02); }
+    .deck-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(8,9,10,0.2) 0%, rgba(8,9,10,0.85) 60%, rgba(8,9,10,0.98) 100%);
+      background: linear-gradient(180deg, rgba(11,14,20,0.1) 0%, rgba(11,14,20,0.85) 60%, rgba(11,14,20,0.98) 100%);
     }
-
-    .slide-content {
+    .deck-content {
       position: relative;
       z-index: 10;
-      padding: 2.5rem 2rem 1.5rem;
+      padding: 30px 28px 20px;
       max-width: 900px;
     }
-    .slide-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.8rem;
+    .deck-eyebrow {
+      font-size: 0.78rem;
       font-weight: 800;
+      color: var(--gold);
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: #ff7b72;
-      margin-bottom: 0.5rem;
+      margin-bottom: 6px;
     }
-    .slide-heading {
+    .deck-title {
+      font-family: 'Playfair Display', Georgia, serif;
       font-size: 2.1rem;
-      font-weight: 900;
-      color: #fff;
-      line-height: 1.15;
-      margin-bottom: 0.75rem;
-      text-transform: uppercase;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 10px;
     }
-    .slide-subtitle {
-      font-size: 1.05rem;
-      color: #c9d1d9;
-      margin-bottom: 1.25rem;
-      line-height: 1.5;
+    .deck-desc {
+      font-size: 0.96rem;
+      color: #cbd5e1;
+      margin-bottom: 16px;
+      line-height: 1.55;
     }
-    .slide-points-grid {
+    .deck-bullets {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 0.85rem;
-      margin-bottom: 1.25rem;
+      gap: 10px;
+      margin-bottom: 14px;
     }
-    .slide-point-card {
-      background: rgba(18, 20, 23, 0.85);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 8px;
-      padding: 0.85rem 1rem;
+    .deck-bullet {
+      background: rgba(18, 23, 33, 0.85);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
       backdrop-filter: blur(8px);
     }
-    .slide-point-title {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 0.2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .slide-point-desc {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      line-height: 1.35;
-    }
+    .deck-bullet-title { font-size: 0.84rem; font-weight: 700; color: var(--gold-light); margin-bottom: 2px; }
+    .deck-bullet-desc { font-size: 0.76rem; color: var(--text-dim); }
 
-    /* DECK CONTROLLER BAR */
-    .deck-bottombar {
-      background: #101317;
-      border-top: 1px solid var(--border);
-      padding: 1rem 1.5rem;
+    .deck-bottom {
+      background: #111620;
+      border-top: 1px solid var(--border-card);
+      padding: 12px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 1rem;
       flex-wrap: wrap;
+      gap: 12px;
     }
-    .deck-pagination-dots {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-    }
-    .dot-btn {
-      width: 12px;
-      height: 12px;
+    .deck-dots { display: flex; gap: 6px; align-items: center; }
+    .deck-dot {
+      width: 10px;
+      height: 10px;
       border-radius: 999px;
-      background: #2a2e36;
+      background: #252e3d;
       border: none;
       cursor: pointer;
       transition: all 0.2s;
     }
-    .dot-btn.active {
-      width: 32px;
-      background: var(--accent-rust);
-      box-shadow: 0 0 10px var(--accent-rust-glow);
-    }
-    .deck-nav-btns {
-      display: flex;
-      gap: 0.5rem;
+    .deck-dot.active {
+      width: 28px;
+      background: var(--gold);
+      box-shadow: 0 0 10px var(--gold-glow);
     }
 
-    /* GALLERY OF PRESENTATION CARDS */
-    .deck-gallery-header {
-      text-align: center;
-      margin: 2.5rem 0 1.5rem;
-    }
-    .deck-gallery-header h2 { font-size: 1.5rem; font-weight: 800; text-transform: uppercase; color: #fff; }
-    .deck-gallery-header p { color: var(--text-muted); font-size: 0.95rem; }
-
-    .gallery-grid {
+    /* CORE HUB CARDS (Style matching kmv-sales-hub: hub-card) */
+    .grid-core {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.25rem;
-      margin-bottom: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 16px;
+      margin-bottom: 30px;
     }
-    .gallery-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
+    .hub-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
       border-radius: var(--radius);
-      overflow: hidden;
+      padding: 22px;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       transition: all 0.25s ease;
-      cursor: pointer;
+      position: relative;
+      overflow: hidden;
     }
-    .gallery-card:hover {
-      border-color: var(--accent-rust);
-      transform: translateY(-4px);
+    .hub-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--card-accent, var(--gold));
+      opacity: 0.8;
+    }
+    .hub-card:hover {
+      border-color: var(--border-card-hover);
+      transform: translateY(-3px);
       box-shadow: var(--shadow);
     }
-    .gallery-card-img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      filter: brightness(0.85);
-      transition: filter 0.2s;
-    }
-    .gallery-card:hover .gallery-card-img {
-      filter: brightness(1);
-    }
-    .gallery-card-body {
-      padding: 1.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      flex: 1;
-    }
-    .gallery-card-badge {
-      font-size: 0.7rem;
+    .card-icon { font-size: 1.8rem; margin-bottom: 10px; display: inline-block; }
+    .card-title {
+      font-size: 1.15rem;
       font-weight: 700;
-      color: var(--accent-rust);
-      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .badge-hot {
+      background: rgba(217, 72, 35, 0.2);
+      color: #ff7b72;
+      border: 1px solid var(--rust);
+      font-size: 0.65rem;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-weight: 800;
       letter-spacing: 0.05em;
     }
-    .gallery-card-title {
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: #fff;
+    .card-desc {
+      font-size: 0.86rem;
+      color: var(--text-dim);
+      line-height: 1.55;
+      margin-bottom: 18px;
     }
-    .gallery-card-desc {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      line-height: 1.45;
-    }
-
-    /* KPI GRID & DASHBOARD */
-    .kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    .kpi-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-    .kpi-label { font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; letter-spacing: 0.05em; }
-    .kpi-value { font-size: 1.6rem; font-weight: 800; color: #fff; }
-    .kpi-sub { font-size: 0.8rem; color: var(--accent-green); }
-
-    .banner-quote {
-      background: linear-gradient(90deg, #191c22 0%, #121417 100%);
-      border-left: 4px solid var(--accent-rust);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      padding: 1.25rem 1.5rem;
-      margin-bottom: 1.5rem;
+    .btn-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      color: var(--gold-light);
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.84rem;
+      font-weight: 700;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
     }
-    .banner-quote-text h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.2rem; }
-    .banner-quote-text p { font-size: 0.88rem; color: var(--text-muted); }
+    .btn-card:hover {
+      background: var(--gold);
+      color: #000;
+      border-color: var(--gold-light);
+    }
 
-    /* RELEASES GRID WITH VISUAL HEADERS */
-    .releases-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 1.25rem;
-      margin-bottom: 2rem;
-    }
-    .release-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .release-card:hover {
-      border-color: var(--border-accent);
-      box-shadow: var(--shadow);
-    }
-    .release-thumbnail {
+    /* RELEASES WITH IMAGES */
+    .release-thumb {
       width: 100%;
       height: 150px;
       object-fit: cover;
-      filter: brightness(0.75);
+      border-radius: var(--radius-sm);
+      margin-bottom: 12px;
+      filter: brightness(0.8);
+      transition: filter 0.2s;
     }
-    .release-card-body {
-      padding: 1.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-      flex: 1;
-    }
-    .release-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 0.5rem;
-    }
-    .release-title { font-size: 1.05rem; font-weight: 800; color: #fff; }
-    .release-tagline { font-size: 0.78rem; color: var(--text-muted); }
-    .progress-bar-bg {
-      background: #1d2127;
+    .hub-card:hover .release-thumb { filter: brightness(1); }
+    .progress-line {
+      background: #1e2634;
       height: 7px;
       border-radius: 999px;
       overflow: hidden;
-      margin: 0.3rem 0;
+      margin: 8px 0 12px;
     }
-    .progress-bar-fill {
-      background: linear-gradient(90deg, var(--accent-rust), #f36c44);
+    .progress-fill {
       height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--rust));
       border-radius: 999px;
       transition: width 0.3s;
     }
-    .release-checklist {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-      margin-top: 0.2rem;
-    }
-    .release-checklist li {
-      font-size: 0.8rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--text);
-    }
-    .release-checklist input[type="checkbox"] {
-      accent-color: var(--accent-rust);
-      cursor: pointer;
-    }
 
-    /* KANBAN BOARD */
-    .kanban-controls {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.25rem;
-      flex-wrap: wrap;
-    }
-    .kanban-filters {
-      display: flex;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-    }
-    .filter-btn {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    .filter-btn.active {
-      background: var(--accent-rust-glow);
-      color: #ff7b72;
-      border-color: var(--accent-rust);
-    }
-    .kanban-board {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      align-items: flex-start;
-      overflow-x: auto;
-      padding-bottom: 1rem;
-    }
-    @media (max-width: 1024px) {
-      .kanban-board { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 640px) {
-      .kanban-board { grid-template-columns: 1fr; }
-    }
-    .kanban-col {
-      background: #101215;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      min-height: 480px;
-    }
-    .kanban-col-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .col-title {
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .col-count {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      font-size: 0.75rem;
-      padding: 0.1rem 0.45rem;
-      border-radius: 999px;
-      color: var(--text-muted);
-    }
-    .kanban-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-      min-height: 380px;
-    }
-    .task-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.9rem;
-      cursor: grab;
-      transition: all 0.2s ease;
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-    }
-    .task-card:hover {
-      border-color: var(--border-accent);
-      background: var(--card-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-    .task-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
-    .tag { font-size: 0.68rem; font-weight: 700; padding: 0.1rem 0.45rem; border-radius: 4px; text-transform: uppercase; }
-    .tag-audio { background: var(--accent-purple-bg); color: var(--accent-purple); }
-    .tag-video { background: var(--accent-blue-bg); color: var(--accent-blue); }
-    .tag-smm { background: var(--accent-green-bg); color: #3fb950; }
-    .tag-release { background: var(--accent-rust-glow); color: #ff7b72; }
-    .tag-live { background: var(--accent-yellow-bg); color: #d29922; }
-    .tag-sync { background: rgba(122, 130, 136, 0.2); color: #c9d1d9; }
-
-    .task-title { font-size: 0.88rem; font-weight: 700; color: #fff; }
-    .task-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
-    .task-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 0.2rem;
-      font-size: 0.72rem;
-      color: var(--text-dim);
-    }
-    .task-assignee { display: flex; align-items: center; gap: 0.3rem; color: var(--text-muted); font-weight: 600; }
-    .task-actions { display: flex; gap: 0.3rem; }
-    .btn-icon {
-      background: transparent;
-      border: none;
-      color: var(--text-dim);
-      cursor: pointer;
-      padding: 0.2rem;
-      border-radius: 4px;
-    }
-    .btn-icon:hover { color: #fff; background: rgba(255,255,255,0.1); }
-
-    /* ASSETS VAULT */
-    .vault-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem; }
-    .vault-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
-    .vault-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
-    .vault-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-    .vault-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem 0.6rem;
-      background: #0f1114;
-      border: 1px solid #1c2026;
-      border-radius: 6px;
-      font-size: 0.82rem;
-    }
-    .vault-item a { color: var(--accent-blue); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.4rem; }
-    .vault-item a:hover { text-decoration: underline; }
-
-    /* FEED */
-    .feed-container { max-width: 900px; margin: 0 auto; }
-    .feed-input-box {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1rem;
-      margin-bottom: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-    .feed-input-box textarea {
-      background: #0d0f12;
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 0.75rem;
-      border-radius: 6px;
-      font-family: inherit;
-      font-size: 0.88rem;
-      resize: vertical;
-      min-height: 70px;
-      outline: none;
-    }
-    .feed-input-box textarea:focus { border-color: var(--accent-rust); }
-    .feed-input-actions { display: flex; justify-content: space-between; align-items: center; }
-    .feed-timeline { display: flex; flex-direction: column; gap: 1rem; }
-    .feed-entry {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1rem 1.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-    .feed-header { display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; }
-    .feed-author { font-weight: 700; color: #fff; display: flex; align-items: center; gap: 0.4rem; }
-    .feed-date { color: var(--text-dim); }
-    .feed-body { font-size: 0.88rem; line-height: 1.5; color: var(--text); }
-
-    /* MODALS */
-    .modal-overlay {
+    /* MODAL */
+    .modal-backdrop {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.8);
-      backdrop-filter: blur(5px);
+      background: rgba(0,0,0,0.82);
+      backdrop-filter: blur(6px);
       z-index: 1000;
       align-items: center;
       justify-content: center;
-      padding: 1rem;
+      padding: 16px;
     }
-    .modal-overlay.active { display: flex; }
-    .modal {
-      background: var(--card-bg);
-      border: 1px solid var(--border-accent);
+    .modal-backdrop.active { display: flex; }
+    .modal-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
       border-radius: var(--radius);
       width: 100%;
-      max-width: 520px;
-      padding: 1.5rem;
+      max-width: 540px;
+      padding: 24px;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.8);
+      gap: 14px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.9);
     }
-    .modal h2 { font-size: 1.15rem; font-weight: 800; color: #fff; }
-    .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
-    .form-group label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); }
-    .form-input, .form-select, .form-textarea {
-      background: #0d0f12;
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 0.6rem 0.8rem;
-      border-radius: 6px;
-      font-family: inherit;
+    .modal-title { font-family: 'Playfair Display', Georgia, serif; font-size: 1.35rem; color: var(--gold-light); }
+    .form-row { display: flex; flex-direction: column; gap: 4px; }
+    .form-label { font-size: 0.74rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; }
+    .form-ctrl {
+      background: var(--bg-base);
+      border: 1px solid var(--border-card);
+      color: var(--white);
+      padding: 9px 12px;
+      border-radius: var(--radius-sm);
       font-size: 0.88rem;
+      font-family: inherit;
       outline: none;
     }
-    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--accent-rust); }
-    .modal-buttons { display: flex; justify-content: flex-end; gap: 0.6rem; margin-top: 0.5rem; }
+    .form-ctrl:focus { border-color: var(--gold); }
+    .modal-btns { display: flex; justify-content: flex-end; gap: 8px; margin-top: 8px; }
 
+    /* FOOTER */
     footer {
-      border-top: 1px solid var(--border);
-      padding: 1.5rem;
       text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid var(--border-card);
       color: var(--text-dim);
-      font-size: 0.8rem;
+      font-size: 0.84rem;
       margin-top: auto;
     }
-    footer a { color: var(--accent-blue); text-decoration: none; }
+    footer a { color: var(--gold-light); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
-  <!-- TOP HEADER -->
+  <!-- HEADER -->
   <header>
-    <div class="header-inner">
-      <div class="brand-block">
-        <div class="brand-logo">LDS</div>
-        <div class="brand-info">
-          <h1>
-            Global Team Partners × LDS Inc.
-            <span class="badge badge-rust">100PRO</span>
-          </h1>
-          <p>Р. П. ГОСТ • Mad Nekit • LDS Squad • Telegram: @ghostghettochild</p>
-        </div>
+    <div class="brand-pill">GLOBAL TEAM PARTNERS &times; LA DAGON SECTOR INC.</div>
+    <h1>Штаб Продвижения: «Р. П. ГОСТ» <span class="cross">&times;</span> <span class="highlight">100PRO Records</span></h1>
+    <p class="subtitle">
+      Интерактивный производственный воркспейс &bull; Командный альбом «4 LIFE» (осень) &bull; Клип «Так закалялась сталь» &bull; Live в Tip Top Barbershop &bull; Эфиры VTRNK Radio &bull; Сольник Mad Nekit
+    </p>
+    <div class="partner-badge">
+      🎙️ Официальный Telegram-хаб: <a href="https://t.me/ghostghettochild" target="_blank" style="color:var(--gold-light); text-decoration:none; margin-left:4px;">@ghostghettochild</a>
+    </div>
+
+    <!-- TOP ACTIONS -->
+    <div class="top-action-bar">
+      <div class="role-toggle">
+        <span>Режим:</span>
+        <select id="userRoleSelect" onchange="HUB.setRole(this.value)">
+          <option value="producer">Продюсер (Global Team Partners)</option>
+          <option value="artist">Артист (Р. П. ГОСТ / Mad Nekit)</option>
+          <option value="team">Командный просмотр (Все)</option>
+        </select>
       </div>
 
-      <div class="header-actions">
-        <div class="role-selector">
-          <span>Режим:</span>
-          <select id="roleSelect" onchange="CRM.switchRole(this.value)">
-            <option value="producer">Продюсер (GTP)</option>
-            <option value="artist">Артист (Р. П. ГОСТ / LDS)</option>
-            <option value="all">Командный (Все)</option>
-          </select>
-        </div>
-
-        <button class="btn btn-primary" onclick="CRM.openTaskModal()">
-          <span>+ Задача</span>
-        </button>
-
-        <button class="btn" onclick="CRM.exportData()" title="Скачать бэкап всех данных">
-          <span>💾 Бэкап JSON</span>
-        </button>
-        <button class="btn" onclick="document.getElementById('importFile').click()" title="Загрузить бэкап">
-          <span>📥 Загрузить</span>
-        </button>
-        <input type="file" id="importFile" style="display:none" accept=".json" onchange="CRM.importData(event)">
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <button class="btn btn-gold" onclick="HUB.openNoteModal()">+ Новая заметка</button>
+        <button class="btn btn-rust" onclick="HUB.openTaskModal()">+ Задача</button>
+        <button class="btn" onclick="HUB.exportBackup()" title="Скачать бэкап заметок и задач">💾 Бэкап JSON</button>
+        <button class="btn" onclick="document.getElementById('fileBackupInput').click()" title="Загрузить бэкап">📥 Восстановить</button>
+        <input type="file" id="fileBackupInput" style="display:none" accept=".json" onchange="HUB.importBackup(event)">
       </div>
     </div>
   </header>
 
+  <!-- STATISTICAL BAR (kmv-sales-hub style) -->
+  <div class="stats-bar">
+    <div class="stat-card">
+      <div class="stat-num">5</div>
+      <div class="stat-label">Ключевых вех релиза</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">100PRO</div>
+      <div class="stat-label">Легендарный лейбл</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">-14 LUFS</div>
+      <div class="stat-label">Мастеринг Spotify/Apple</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Прав у артиста (Rev-Share)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" id="statNotesCount">6</div>
+      <div class="stat-label">Активных заметок</div>
+    </div>
+  </div>
+
   <!-- NAVIGATION TABS -->
-  <div class="nav-bar">
+  <div class="nav-tabs-wrapper">
     <div class="nav-tabs">
-      <button class="tab-btn tab-btn-highlight active" onclick="CRM.switchTab('presentation')">
+      <button class="tab-btn active" onclick="HUB.switchTab('notes')">
+        📝 Заметки & Блокнот <span class="tab-badge" id="badgeNotes">6</span>
+      </button>
+      <button class="tab-btn" onclick="HUB.switchTab('tasks')">
+        📋 Задачи & Канбан <span class="tab-badge" id="badgeTasks">6</span>
+      </button>
+      <button class="tab-btn" onclick="HUB.switchTab('pitch')">
         🎬 Презентация (Pitch Deck)
       </button>
-      <button class="tab-btn" onclick="CRM.switchTab('dashboard')">
-        📊 Воронка и Релизы
+      <button class="tab-btn" onclick="HUB.switchTab('releases')">
+        💿 Релизный Центр
       </button>
-      <button class="tab-btn" onclick="CRM.switchTab('kanban')">
-        📋 Канбан CRM <span class="tab-badge" id="totalTasksCount">0</span>
+      <button class="tab-btn" onclick="HUB.switchTab('assets')">
+        📁 Ассеты & Ссылки
       </button>
-      <button class="tab-btn" onclick="CRM.switchTab('assets')">
-        📁 Ассеты и Ссылки
-      </button>
-      <button class="tab-btn" onclick="CRM.switchTab('feed')">
-        💬 Журнал и Чат <span class="tab-badge" id="totalFeedCount">0</span>
-      </button>
-      <button class="tab-btn" onclick="CRM.switchTab('winwin')">
+      <button class="tab-btn" onclick="HUB.switchTab('winwin')">
         🤝 Win-Win & Финансы
-      </button>
-      <button class="tab-btn" onclick="CRM.switchTab('brand')">
-        🎨 Брендбук
       </button>
     </div>
   </div>
 
-  <!-- MAIN CONTAINER -->
-  <main>
+  <!-- CONTAINER -->
+  <div class="container">
 
-    <!-- 0. PRESENTATION DECK TAB (NEW!) -->
-    <div id="tab-presentation" class="tab-content active">
-      
-      <!-- Interactive Cinema Slide Viewer -->
-      <div class="deck-container" id="deckContainer">
-        <div class="deck-topbar">
-          <div class="deck-slide-title" id="deckSlideIndicator">Слайд 01 / 07 • Манифест & ДНК</div>
-          <div class="deck-controls-top">
-            <span class="badge badge-rust">100PRO Records</span>
-            <button class="btn" onclick="CRM.toggleFullscreenDeck()" title="Во весь экран">⛶ Полный экран</button>
+    <!-- ========================================================
+         TAB 1: ЗАМЕТКИ & БЛОКНОТ АРТИСТА (NOTES)
+         ======================================================== -->
+    <div id="tab-notes" class="tab-pane active">
+      <div class="notes-toolbar">
+        <div class="notes-search">
+          <span>🔍</span>
+          <input type="text" id="notesSearchInput" placeholder="Поиск по заметкам, текстам, панчам..." oninput="HUB.renderNotes()">
+        </div>
+
+        <div class="notes-filter-pills">
+          <button class="note-pill active" onclick="HUB.filterNotes('all', this)">Все</button>
+          <button class="note-pill" onclick="HUB.filterNotes('track', this)">🎵 Идеи треков</button>
+          <button class="note-pill" onclick="HUB.filterNotes('lyrics', this)">✍️ Панчи & Лирика</button>
+          <button class="note-pill" onclick="HUB.filterNotes('100pro', this)">👑 100PRO</button>
+          <button class="note-pill" onclick="HUB.filterNotes('meeting', this)">🤝 Встречи</button>
+        </div>
+
+        <button class="btn btn-gold" onclick="HUB.openNoteModal()">+ Добавить заметку</button>
+      </div>
+
+      <h2 class="section-heading">📝 Рабочий Блокнот Артиста и Продюсера</h2>
+      <p class="section-desc">Место для фиксации рифм, концепций треков альбома «4 LIFE», договоренностей с Владом Валовым и планов по съемкам.</p>
+
+      <div class="notes-grid" id="notesGrid">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+
+    <!-- ========================================================
+         TAB 2: ЗАДАЧИ & КАНБАН (TASKS)
+         ======================================================== -->
+    <div id="tab-tasks" class="tab-pane">
+      <div class="task-quick-add">
+        <span style="color:var(--gold); font-weight:700;">⚡ Быстрая задача:</span>
+        <input type="text" id="quickTaskInput" placeholder="Что нужно сделать? Нажмите Enter или кнопку..." onkeydown="if(event.key==='Enter') HUB.quickAddTask()">
+        <select id="quickTaskCol">
+          <option value="backlog">💡 Бэклог</option>
+          <option value="progress">⚡ В работе (GTP)</option>
+          <option value="artist">🎙️ На стороне артиста</option>
+          <option value="done">✓ Готово</option>
+        </select>
+        <select id="quickTaskAssignee">
+          <option value="GTP (Продюсер)">GTP (Продюсер)</option>
+          <option value="Р. П. ГОСТ">Р. П. ГОСТ</option>
+          <option value="Mad Nekit">Mad Nekit</option>
+          <option value="100PRO Лейбл">100PRO Лейбл</option>
+        </select>
+        <button class="btn btn-rust" onclick="HUB.quickAddTask()">Добавить</button>
+      </div>
+
+      <h2 class="section-heading">📋 Канбан-система координации релизов</h2>
+      <p class="section-desc">Отслеживание статусов: от мастеринга и видеомонтажа до подачи в кураторские плейлисты.</p>
+
+      <div class="kanban-board">
+        <!-- Col 1: Backlog -->
+        <div class="kanban-column" ondragover="HUB.dragOver(event)" ondrop="HUB.dropTask(event, 'backlog')">
+          <div class="kanban-col-head">
+            <span class="col-title">💡 Бэклог & Идеи</span>
+            <span class="col-count" id="count-backlog">0</span>
+          </div>
+          <div class="kanban-cards-box" id="col-backlog"></div>
+        </div>
+
+        <!-- Col 2: In Progress -->
+        <div class="kanban-column" ondragover="HUB.dragOver(event)" ondrop="HUB.dropTask(event, 'progress')">
+          <div class="kanban-col-head">
+            <span class="col-title" style="color:var(--rust-light);">⚡ В работе (GTP)</span>
+            <span class="col-count" id="count-progress">0</span>
+          </div>
+          <div class="kanban-cards-box" id="col-progress"></div>
+        </div>
+
+        <!-- Col 3: Artist Action -->
+        <div class="kanban-column" ondragover="HUB.dragOver(event)" ondrop="HUB.dropTask(event, 'artist')">
+          <div class="kanban-col-head">
+            <span class="col-title" style="color:#60a5fa;">🎙️ Действие артиста</span>
+            <span class="col-count" id="count-artist">0</span>
+          </div>
+          <div class="kanban-cards-box" id="col-artist"></div>
+        </div>
+
+        <!-- Col 4: Done -->
+        <div class="kanban-column" ondragover="HUB.dragOver(event)" ondrop="HUB.dropTask(event, 'done')">
+          <div class="kanban-col-head">
+            <span class="col-title" style="color:var(--green);">✓ Готово / Сдано</span>
+            <span class="col-count" id="count-done">0</span>
+          </div>
+          <div class="kanban-cards-box" id="col-done"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         TAB 3: ПРЕЗЕНТАЦИЯ (PITCH DECK)
+         ======================================================== -->
+    <div id="tab-pitch" class="tab-pane">
+      <div class="deck-frame" id="pitchDeckFrame">
+        <div class="deck-top">
+          <div class="deck-slide-indicator" id="deckIndicator">СЛАЙД 01 / 07 • МАНИФЕСТ & ДНК</div>
+          <div style="display:flex; gap:8px;">
+            <span class="badge-hot">100PRO SYNDICATE</span>
+            <button class="btn" onclick="HUB.toggleFullscreenDeck()">⛶ Полный экран</button>
           </div>
         </div>
 
-        <div class="slide-wrapper" id="slideWrapper">
-          <img src="assets/images/hero_steel_hardcore.jpg" alt="Slide Visual" class="slide-img-bg" id="slideImg">
-          <div class="slide-overlay"></div>
+        <div class="deck-stage">
+          <img src="assets/images/hero_steel_hardcore.jpg" class="deck-bg-img" id="deckImg" alt="Slide Visual">
+          <div class="deck-overlay"></div>
           
-          <div class="slide-content">
-            <div class="slide-eyebrow" id="slideEyebrow">⚡ ФИЛОСОФИЯ И ДНК СИНДИКАТА</div>
-            <h2 class="slide-heading" id="slideHeading">«Так закалялась сталь»</h2>
-            <p class="slide-subtitle" id="slideSubtitle">
-              Не соло-артист, а самобытный хип-хоп синдикат. Плотный классический бум-бэп, уличный реализм Донбасса и Горловки, школа культового лейбла 100PRO.
+          <div class="deck-content">
+            <div class="deck-eyebrow" id="deckEyebrow">⚡ ФИЛОСОФИЯ И ДНК СИНДИКАТА</div>
+            <h2 class="deck-title" id="deckTitle">«Так закалялась сталь»</h2>
+            <p class="deck-desc" id="deckDesc">
+              Не соло-артист, а самобытный хип-хоп синдикат. Плотный бум-бэп старой школы, шахтерская романтика Донбасса и Горловки, андеграунд Москвы и Петербурга.
             </p>
-            <div class="slide-points-grid" id="slidePointsGrid">
+            <div class="deck-bullets" id="deckBullets">
               <!-- Rendered via JS -->
             </div>
           </div>
         </div>
 
-        <div class="deck-bottombar">
-          <div class="deck-pagination-dots" id="deckDots">
+        <div class="deck-bottom">
+          <div class="deck-dots" id="deckDots">
             <!-- Rendered via JS -->
           </div>
-
-          <div class="deck-nav-btns">
-            <button class="btn" onclick="CRM.prevSlide()">◀ Назад</button>
-            <button class="btn btn-primary" onclick="CRM.nextSlide()">Вперед ▶</button>
+          <div style="display:flex; gap:8px;">
+            <button class="btn" onclick="HUB.prevSlide()">◀ Назад</button>
+            <button class="btn btn-gold" onclick="HUB.nextSlide()">Вперед ▶</button>
           </div>
-        </div>
-      </div>
-
-      <!-- Presentation Visual Gallery & Highlights -->
-      <div class="deck-gallery-header">
-        <h2>Визуальная архитектура проекта: 5 столпов</h2>
-        <p>Каждое изображение отражает аутентичную эстетику релизов, лайвов и медиа-форматов коллектива</p>
-      </div>
-
-      <div class="gallery-grid">
-        <div class="gallery-card" onclick="CRM.goToSlide(0)">
-          <img src="assets/images/hero_steel_hardcore.jpg" class="gallery-card-img" alt="Так закалялась сталь">
-          <div class="gallery-card-body">
-            <span class="gallery-card-badge">Слайд 01 • Манифест</span>
-            <div class="gallery-card-title">«Так закалялась сталь»</div>
-            <div class="gallery-card-desc">Индустриальный брутализм, плавильные цеха, суровый уличный монолит и кодекс «4 LIFE».</div>
-          </div>
-        </div>
-
-        <div class="gallery-card" onclick="CRM.goToSlide(1)">
-          <img src="assets/images/album_4life_vinyl.jpg" class="gallery-card-img" alt="Альбом 4 LIFE">
-          <div class="gallery-card-body">
-            <span class="gallery-card-badge">Слайд 02 • Релиз осени</span>
-            <div class="gallery-card-title">Командный альбом «4 LIFE»</div>
-            <div class="gallery-card-desc">Винил, MPC сэмплеры, кассеты, лейбл 100PRO, мировой мастеринг под Spotify (-14 LUFS).</div>
-          </div>
-        </div>
-
-        <div class="gallery-card" onclick="CRM.goToSlide(2)">
-          <img src="assets/images/hero_steel_hardcore.jpg" class="gallery-card-img" alt="Клип Так закалялась сталь">
-          <div class="gallery-card-body">
-            <span class="gallery-card-badge">Слайд 03 • Видео-продакшн</span>
-            <div class="gallery-card-title">Официальный 4K Клип</div>
-            <div class="gallery-card-desc">Синтез реальных съемок с ИИ-генерациями (Kling/Runway), Topaz Video 4K, сабы EN/ES и Genius.</div>
-          </div>
-        </div>
-
-        <div class="gallery-card" onclick="CRM.goToSlide(3)">
-          <img src="assets/images/tiptop_barbershop_live.jpg" class="gallery-card-img" alt="Tip Top Barbershop">
-          <div class="gallery-card-body">
-            <span class="gallery-card-badge">Слайд 04 • Оффлайн Live</span>
-            <div class="gallery-card-title">Tip Top Barbershop Live</div>
-            <div class="gallery-card-desc">Хром бритв, кожаные кресла, дым, запись чистого звука Shure, серия «Tip Top Sessions».</div>
-          </div>
-        </div>
-
-        <div class="gallery-card" onclick="CRM.goToSlide(4)">
-          <img src="assets/images/vtrnk_radio_studio.jpg" class="gallery-card-img" alt="VTRNK Radio">
-          <div class="gallery-card-body">
-            <span class="gallery-card-badge">Слайд 05 • Медиа-фабрика</span>
-            <div class="gallery-card-title">Эфиры на VTRNK Radio</div>
-            <div class="gallery-card-desc">Студийный полумрак, аналоговые стрелки VU, ежедневные шортс и AI-дубляж ElevenLabs на английский.</div>
-          </div>
-        </div>
-
-        <div class="gallery-card" onclick="CRM.goToSlide(5)">
-          <img src="assets/images/mad_nekit_producer.jpg" class="gallery-card-img" alt="Mad Nekit">
-          <div class="gallery-card-body">
-            <span class="gallery-card-badge">Слайд 06 • Сольный альбом</span>
-            <div class="gallery-card-title">Сольник Mad Nekit</div>
-            <div class="gallery-card-desc">Начало следующего года. Лаборатория битмейкинга, сэмпл-паки, расширение вселенной LDS.</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- 1. DASHBOARD & RELEASES VIEW -->
-    <div id="tab-dashboard" class="tab-content">
-      <div class="kpi-grid">
-        <div class="kpi-card">
-          <div class="kpi-label">Текущий флагман</div>
-          <div class="kpi-value" style="font-size:1.35rem; color:#ff7b72;">Альбом «4 LIFE»</div>
-          <div class="kpi-sub">Лейбл 100PRO (Осень)</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Видео-манифест</div>
-          <div class="kpi-value" style="font-size:1.35rem; color:#58a6ff;">«Закалялась сталь»</div>
-          <div class="kpi-sub">AI-генерация 4K + Сабы</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Следующий эшелон</div>
-          <div class="kpi-value" style="font-size:1.35rem; color:#d29922;">Сольник Mad Nekit</div>
-          <div class="kpi-sub">Начало следующего года</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Статус синхронизации</div>
-          <div class="kpi-value" style="font-size:1.35rem; color:#3fb950;">Активно</div>
-          <div class="kpi-sub">Хаб @ghostghettochild</div>
-        </div>
-      </div>
-
-      <div class="banner-quote">
-        <div class="banner-quote-text">
-          <h3>«Так закалялась сталь» — Командный производственный хаб</h3>
-          <p>Полная прозрачность между Global Team Partners и Р. П. ГОСТ / LDS Inc. Отслеживайте каждый шаг, статус треков и видео в режиме реального времени.</p>
-        </div>
-        <div style="display:flex; gap:0.5rem;">
-          <a href="https://t.me/ghostghettochild" target="_blank" class="btn btn-primary">Telegram-хаб</a>
-          <a href="https://github.com/unityspirit/globalteampartners" target="_blank" class="btn">GitHub Репозиторий</a>
-        </div>
-      </div>
-
-      <h2 style="font-size:1.2rem; font-weight:800; margin-bottom:1rem; color:#fff;">⚡ Воронка ключевых релизов с визуальным контролем</h2>
-      <div class="releases-grid" id="releasesContainer">
-        <!-- Rendered via JS with image thumbnails -->
-      </div>
-    </div>
-
-    <!-- 2. KANBAN CRM VIEW -->
-    <div id="tab-kanban" class="tab-content">
-      <div class="kanban-controls">
-        <div class="kanban-filters">
-          <button class="filter-btn active" onclick="CRM.filterKanban('all', this)">Все задачи</button>
-          <button class="filter-btn" onclick="CRM.filterKanban('audio', this)">Звук & Мастеринг</button>
-          <button class="filter-btn" onclick="CRM.filterKanban('video', this)">Видео & ИИ-клипы</button>
-          <button class="filter-btn" onclick="CRM.filterKanban('smm', this)">SMM & Шортс</button>
-          <button class="filter-btn" onclick="CRM.filterKanban('live', this)">Live & Радио</button>
-          <button class="filter-btn" onclick="CRM.filterKanban('sync', this)">Синхронизация</button>
-        </div>
-        <button class="btn btn-primary" onclick="CRM.openTaskModal()">+ Создать задачу</button>
-      </div>
-
-      <div class="kanban-board">
-        <!-- Col 1: Backlog -->
-        <div class="kanban-col" ondragover="CRM.dragOver(event)" ondrop="CRM.drop(event, 'backlog')">
-          <div class="kanban-col-header">
-            <div class="col-title">💡 Бэклог & Идеи</div>
-            <div class="col-count" id="count-backlog">0</div>
-          </div>
-          <div class="kanban-cards" id="col-backlog"></div>
-        </div>
-
-        <!-- Col 2: In Progress (GTP) -->
-        <div class="kanban-col" ondragover="CRM.dragOver(event)" ondrop="CRM.drop(event, 'gtp_progress')">
-          <div class="kanban-col-header">
-            <div class="col-title" style="color:var(--accent-rust);">⚡ В работе (GTP)</div>
-            <div class="col-count" id="count-gtp_progress">0</div>
-          </div>
-          <div class="kanban-cards" id="col-gtp_progress"></div>
-        </div>
-
-        <!-- Col 3: Artist Action -->
-        <div class="kanban-col" ondragover="CRM.dragOver(event)" ondrop="CRM.drop(event, 'artist_action')">
-          <div class="kanban-col-header">
-            <div class="col-title" style="color:var(--accent-blue);">🎙️ Действие артиста</div>
-            <div class="col-count" id="count-artist_action">0</div>
-          </div>
-          <div class="kanban-cards" id="col-artist_action"></div>
-        </div>
-
-        <!-- Col 4: Done -->
-        <div class="kanban-col" ondragover="CRM.dragOver(event)" ondrop="CRM.drop(event, 'done')">
-          <div class="kanban-col-header">
-            <div class="col-title" style="color:var(--accent-green);">✓ Готово / Выпущено</div>
-            <div class="col-count" id="count-done">0</div>
-          </div>
-          <div class="kanban-cards" id="col-done"></div>
         </div>
       </div>
     </div>
 
-    <!-- 3. ASSETS VAULT -->
-    <div id="tab-assets" class="tab-content">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+    <!-- ========================================================
+         TAB 4: РЕЛИЗНЫЙ ЦЕНТР (5 СТОЛПОВ)
+         ======================================================== -->
+    <div id="tab-releases" class="tab-pane">
+      <h2 class="section-heading">⚡ 5 Столпов Стратегического Роадмапа</h2>
+      <p class="section-desc">Ключевые релизы и медиа-активации, формирующие единую воронку роста прослушиваний и капитализации.</p>
+
+      <div class="grid-core" id="releasesGrid">
+        <!-- Rendered via JS with images and checklists -->
+      </div>
+    </div>
+
+    <!-- ========================================================
+         TAB 5: АССЕТЫ И ССЫЛКИ (ASSET VAULT)
+         ======================================================== -->
+    <div id="tab-assets" class="tab-pane">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:10px;">
         <div>
-          <h2 style="font-size:1.2rem; font-weight:800; color:#fff;">📁 Хранилище ассетов, мастеров и ссылок</h2>
-          <p style="font-size:0.85rem; color:var(--text-muted);">Быстрый доступ к облачным дискам, исходникам клипа, дорожкам и документам</p>
+          <h2 class="section-heading" style="margin-bottom:4px;">📁 Хранилище Мастеров, Исходников и Ссылок</h2>
+          <p class="section-desc" style="margin:0;">Централизованный доступ к облачным дискам, дорожкам и промо-материалам.</p>
         </div>
-        <button class="btn btn-primary" onclick="CRM.openAssetModal()">+ Добавить ссылку</button>
+        <button class="btn btn-gold" onclick="HUB.openAssetModal()">+ Добавить ссылку</button>
       </div>
 
-      <div class="vault-grid" id="assetsContainer">
+      <div class="grid-core" id="assetsGrid">
         <!-- Rendered via JS -->
       </div>
     </div>
 
-    <!-- 4. FEED / LOG VIEW -->
-    <div id="tab-feed" class="tab-content">
-      <div class="feed-container">
-        <div class="feed-input-box">
-          <textarea id="feedText" placeholder="Добавить заметку, отчет по релизу или сообщение в общий журнал..."></textarea>
-          <div class="feed-input-actions">
-            <div style="font-size:0.8rem; color:var(--text-muted);">
-              Автор: <span id="currentAuthorLabel" style="font-weight:700; color:#fff;">Продюсер (GTP)</span>
-            </div>
-            <button class="btn btn-primary" onclick="CRM.addFeedEntry()">Опубликовать запись</button>
-          </div>
-        </div>
-
-        <div class="feed-timeline" id="feedTimeline">
-          <!-- Rendered via JS -->
-        </div>
-      </div>
-    </div>
-
-    <!-- 5. WIN-WIN & FINANCIALS -->
-    <div id="tab-winwin" class="tab-content">
-      <div style="max-width:1000px; margin:0 auto; display:flex; flex-direction:column; gap:1.5rem;">
+    <!-- ========================================================
+         TAB 6: WIN-WIN & ФИНАНСЫ
+         ======================================================== -->
+    <div id="tab-winwin" class="tab-pane">
+      <div style="max-width:960px; margin:0 auto; display:flex; flex-direction:column; gap:20px;">
         
-        <div class="kpi-card" style="border-left:4px solid var(--accent-green);">
-          <h2 style="font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:0.5rem;">🤝 Манифест прозрачности и партнерства</h2>
-          <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6;">
-            Мы не мейджор-лейбл старой формации, отбирающий права и творческую свободу. Мы — **технологический продюсерский акселератор**.
-            Все 100% авторских прав и мастер-записей принадлежат **Р. П. ГОСТу, Mad Nekit и LDS Inc.** Мы зарабатываем только тогда, когда проект растет и монетизируется по согласованной модели Rev-Share.
-          </p>
-        </div>
-
-        <div class="releases-grid">
-          <div class="release-card" style="background:#15181e;">
-            <div style="padding:1.25rem;">
-              <h3 style="color:#ff7b72; font-size:1rem; margin-bottom:0.5rem;">Что получает Артист (LDS Inc.)</h3>
-              <ul style="font-size:0.88rem; color:var(--text-muted); display:flex; flex-direction:column; gap:0.5rem; padding-left:1.2rem;">
-                <li>0% траты времени на видеомонтаж, рилсы, SMM-рутину и письма.</li>
-                <li>Голливудский уровень ИИ-графики и 4K апскейл без миллионных затрат.</li>
-                <li>Калибровка звука под мировые стриминговые стандарты Spotify (-14 LUFS).</li>
-                <li>Глобальный выход на англоязычных кураторов, Genius и Bandcamp.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="release-card" style="background:#15181e;">
-            <div style="padding:1.25rem;">
-              <h3 style="color:var(--accent-blue); font-size:1rem; margin-bottom:0.5rem;">Что получаем Мы (Global Team Partners)</h3>
-              <ul style="font-size:0.88rem; color:var(--text-muted); display:flex; flex-direction:column; gap:0.5rem; padding-left:1.2rem;">
-                <li>Флагманский международный кейс применения ИИ в независимой индустрии.</li>
-                <li>Справедливый Rev-Share процент от прироста стриминга и монетизации YouTube.</li>
-                <li>Доля от контрактов на синхронизацию (игры, спорт, сериалы).</li>
-                <li>Прямое институциональное партнерство с легендарным лейблом 100PRO.</li>
-              </ul>
-            </div>
+        <div class="hub-card" style="--card-accent: var(--green);">
+          <div>
+            <span class="card-icon">🤝</span>
+            <h3 class="card-title">Манифест Прозрачности & Долгосрочного Альянса</h3>
+            <p class="card-desc">
+              Мы не классический лейбл-монополист, отбирающий права и роялти. Мы — **технологический продюсерский хаб**. 
+              Все 100% мастер-прав и авторских прав остаются за **Р. П. ГОСТом, Mad Nekit и LDS Inc.** 
+              Мы работаем по прозрачной модели Rev-Share: зарабатываем только тогда, когда проект масштабируется и приносит прибыль.
+            </p>
           </div>
         </div>
 
-        <div class="kpi-card">
-          <h3 style="font-size:1.1rem; color:#fff; margin-bottom:0.8rem;">🎯 Целевые финансовые и аудиторные ориентиры</h3>
-          <table style="width:100%; border-collapse:collapse; font-size:0.88rem;">
-            <thead>
-              <tr style="border-bottom:1px solid var(--border); color:var(--text-muted); text-align:left;">
-                <th style="padding:0.5rem;">Веха / Цель</th>
-                <th style="padding:0.5rem;">Показатель</th>
-                <th style="padding:0.5rem;">Инструмент достижения</th>
-                <th style="padding:0.5rem;">Статус</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom:1px solid #1c2026;">
-                <td style="padding:0.6rem 0.5rem;"><b>Альбом «4 LIFE»</b></td>
-                <td>250,000+ стримов</td>
-                <td>Spotify Canvas, Editorial питчинг, посев лейбла 100PRO</td>
-                <td><span class="badge badge-rust">В работе</span></td>
-              </tr>
-              <tr style="border-bottom:1px solid #1c2026;">
-                <td style="padding:0.6rem 0.5rem;"><b>Клип «Закалялась сталь»</b></td>
-                <td>100,000+ просмотров</td>
-                <td>4K AI-видео, YouTube Shorts нарезка, субтитры EN/ES</td>
-                <td><span class="badge badge-blue">Генерация</span></td>
-              </tr>
-              <tr style="border-bottom:1px solid #1c2026;">
-                <td style="padding:0.6rem 0.5rem;"><b>VTRNK Shorts Фабрика</b></td>
-                <td>500,000+ органики</td>
-                <td>Opus Clip / Submagic виральные панчи ежедневно</td>
-                <td><span class="badge badge-green">Запущено</span></td>
-              </tr>
-              <tr>
-                <td style="padding:0.6rem 0.5rem;"><b>Синхронизация (Sync)</b></td>
-                <td>1–2 лицензионных сделки</td>
-                <td>Питчинг в промоушены единоборств (MMA, кулачка) и инди-игры</td>
-                <td><span class="badge badge-rust">Переговоры</span></td>
-              </tr>
-            </tbody>
-          </table>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:16px;">
+          <div class="hub-card" style="--card-accent: var(--rust);">
+            <div>
+              <span class="card-icon">🎙️</span>
+              <h3 class="card-title">Что получает Артист (LDS Inc.)</h3>
+              <p class="card-desc">
+                &bull; 0% рутины: видеомонтаж, шортс, переводы и питчинг берет на себя GTP.<br>
+                &bull; Звук мирового уровня (-14 LUFS) и 4K-апскейл клипов.<br>
+                &bull; Глобальный выход на Spotify, Apple Music, Genius и Bandcamp.<br>
+                &bull; Сохранение полной творческой свободы и независимости.
+              </p>
+            </div>
+          </div>
+
+          <div class="hub-card" style="--card-accent: var(--gold);">
+            <div>
+              <span class="card-icon">👑</span>
+              <h3 class="card-title">Что получаем Мы (Global Team Partners)</h3>
+              <p class="card-desc">
+                &bull; Флагманский кейс вывода нишевого андеграунда на глобальный рынок с помощью ИИ.<br>
+                &bull; Доля по Rev-Share от прироста стриминга, мерча и концертов.<br>
+                &bull; Доля от синхронизационных сделок (спорт, кино, видеоигры).<br>
+                &bull; Прямое партнерство с культовой экосистемой 100PRO (ШЕFF).
+              </p>
+            </div>
+          </div>
         </div>
 
       </div>
     </div>
 
-    <!-- 6. BRANDBOOK & PRESS KIT -->
-    <div id="tab-brand" class="tab-content">
-      <div style="max-width:1000px; margin:0 auto; display:flex; flex-direction:column; gap:1.5rem;">
-        
-        <div class="kpi-card">
-          <h2 style="font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">🎨 Фирменная палитра: «Так закалялась сталь»</h2>
-          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1rem;">Кликните на карточку любого цвета, чтобы скопировать HEX-код в буфер обмена</p>
-          
-          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:0.75rem;">
-            <div onclick="CRM.copyHex('#222428')" style="background:#222428; border:1px solid #333a44; border-radius:8px; padding:1rem; cursor:pointer;">
-              <div style="font-weight:800; font-size:0.9rem; color:#fff;">Raw Concrete</div>
-              <div style="font-size:0.75rem; color:#8b949e;">#222428</div>
-            </div>
-            <div onclick="CRM.copyHex('#0C0D0E')" style="background:#0C0D0E; border:1px solid #333a44; border-radius:8px; padding:1rem; cursor:pointer;">
-              <div style="font-weight:800; font-size:0.9rem; color:#fff;">Dark Obsidian</div>
-              <div style="font-size:0.75rem; color:#8b949e;">#0C0D0E</div>
-            </div>
-            <div onclick="CRM.copyHex('#7A8288')" style="background:#7A8288; border:1px solid #333a44; border-radius:8px; padding:1rem; cursor:pointer;">
-              <div style="font-weight:800; font-size:0.9rem; color:#0c0d0e;">Tempered Steel</div>
-              <div style="font-size:0.75rem; color:#222428;">#7A8288</div>
-            </div>
-            <div onclick="CRM.copyHex('#D94823')" style="background:#D94823; border:1px solid #ff7b72; border-radius:8px; padding:1rem; cursor:pointer;">
-              <div style="font-weight:800; font-size:0.9rem; color:#fff;">Oxide Rust</div>
-              <div style="font-size:0.75rem; color:#ffe3dc;">#D94823</div>
-            </div>
-            <div onclick="CRM.copyHex('#E6ECE8')" style="background:#E6ECE8; border:1px solid #333a44; border-radius:8px; padding:1rem; cursor:pointer;">
-              <div style="font-weight:800; font-size:0.9rem; color:#0c0d0e;">Phosphor VHS</div>
-              <div style="font-size:0.75rem; color:#555;">#E6ECE8</div>
-            </div>
-          </div>
-        </div>
+  </div>
 
-        <div class="kpi-card">
-          <h3 style="font-size:1.1rem; color:#fff; margin-bottom:0.5rem;">📄 Официальный пресс-релиз / Биография для СМИ и кураторов</h3>
-          <div style="background:#0c0d0e; border:1px solid var(--border); border-radius:6px; padding:1rem; font-size:0.88rem; color:#c9d1d9; line-height:1.6;">
-            «Р. П. ГОСТ / La Dagon Sector Inc.» — бескомпромиссный хип-хоп синдикат, артисты легендарного лейбла 100PRO (ШЕFF / Bad Balance). Корни объединения уходят в суровую индустриальную романтику Горловки, Донбасса, андеграунд Санкт-Петербурга и Москвы. 
-            Звучание группы — это сплав плотного бум-бэпа золотой эры, хриплой уличной поэзии и аутентичной философии «Так закалялась сталь». 
-            В данный момент объединение выпускает командный альбом «4 LIFE» (100PRO) и видео-манифест «Так закалялась сталь», проводит серии эксклюзивных лайвов в Tip Top Barbershop, ведет регулярные эфиры на VTRNK Radio и готовит масштабный сольный альбом Mad Nekit.
-          </div>
-          <button class="btn" style="margin-top:0.75rem;" onclick="navigator.clipboard.writeText(this.previousElementSibling.innerText); alert('Пресс-релиз скопирован в буфер!');">Скопировать пресс-релиз</button>
-        </div>
-
-      </div>
-    </div>
-
-  </main>
-
-  <!-- MODAL: ADD / EDIT TASK -->
-  <div class="modal-overlay" id="taskModal">
-    <div class="modal">
-      <h2 id="taskModalTitle">Новая задача в CRM</h2>
+  <!-- MODAL: НОВАЯ ЗАМЕТКА -->
+  <div class="modal-backdrop" id="noteModal">
+    <div class="modal-box">
+      <h3 class="modal-title" id="noteModalTitle">Новая заметка в блокнот</h3>
       
-      <div class="form-group">
-        <label>Название задачи</label>
-        <input type="text" id="taskTitleInput" class="form-input" placeholder="Например: Стем-мастеринг трека №3">
+      <div class="form-row">
+        <label class="form-label">Заголовок заметки</label>
+        <input type="text" id="noteTitleInput" class="form-ctrl" placeholder="Например: Идея куплета для «Так закалялась сталь»">
       </div>
 
-      <div class="form-group">
-        <label>Описание и детали</label>
-        <textarea id="taskDescInput" class="form-textarea" placeholder="Что конкретно нужно сделать, какие ссылки или референсы..."></textarea>
+      <div class="form-row">
+        <label class="form-label">Категория</label>
+        <select id="noteTagSelect" class="form-ctrl">
+          <option value="track">🎵 Идея трека</option>
+          <option value="lyrics">✍️ Панчи & Лирика</option>
+          <option value="100pro">👑 100PRO Лейбл</option>
+          <option value="meeting">🤝 Встреча / Договоренность</option>
+          <option value="general">📋 Общая заметка</option>
+        </select>
       </div>
 
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem;">
-        <div class="form-group">
-          <label>Колонка статуса</label>
-          <select id="taskColSelect" class="form-select">
-            <option value="backlog">💡 Бэклог & Идеи</option>
-            <option value="gtp_progress">⚡ В работе (GTP)</option>
-            <option value="artist_action">🎙️ Действие артиста</option>
+      <div class="form-row">
+        <label class="form-label">Текст заметки</label>
+        <textarea id="noteBodyInput" class="form-ctrl" style="min-height:120px; resize:vertical;" placeholder="Напишите текст, рифмы, детали договоренности или ссылку..."></textarea>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:8px;">
+        <input type="checkbox" id="notePinCheck" style="accent-color:var(--gold); cursor:pointer;">
+        <label for="notePinCheck" style="font-size:0.82rem; color:var(--gold-light); cursor:pointer;">Закрепить вверху блокнота 📌</label>
+      </div>
+
+      <div class="modal-btns">
+        <button class="btn" onclick="HUB.closeNoteModal()">Отмена</button>
+        <button class="btn btn-gold" onclick="HUB.saveNote()">Сохранить заметку</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: НОВАЯ ЗАДАЧА -->
+  <div class="modal-backdrop" id="taskModal">
+    <div class="modal-box">
+      <h3 class="modal-title">Новая задача в Канбан</h3>
+      
+      <div class="form-row">
+        <label class="form-label">Название задачи</label>
+        <input type="text" id="taskTitleInput" class="form-ctrl" placeholder="Например: Подготовить 10 Canvas для Spotify">
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">Детали и описание</label>
+        <textarea id="taskDescInput" class="form-ctrl" style="min-height:70px; resize:vertical;" placeholder="Конкретные требования, сроки..."></textarea>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+        <div class="form-row">
+          <label class="form-label">Статус</label>
+          <select id="taskColSelect" class="form-ctrl">
+            <option value="backlog">💡 Бэклог</option>
+            <option value="progress">⚡ В работе (GTP)</option>
+            <option value="artist">🎙️ Действие артиста</option>
             <option value="done">✓ Готово</option>
           </select>
         </div>
-        <div class="form-group">
-          <label>Категория / Тэг</label>
-          <select id="taskTagSelect" class="form-select">
-            <option value="audio">Звук & Мастеринг</option>
-            <option value="video">Видео & Клипы</option>
-            <option value="smm">SMM & Шортс</option>
-            <option value="release">Релиз 100PRO</option>
-            <option value="live">Live & Радио</option>
-            <option value="sync">Синхронизация</option>
+        <div class="form-row">
+          <label class="form-label">Приоритет</label>
+          <select id="taskPrioritySelect" class="form-ctrl">
+            <option value="high">🔥 Высокий</option>
+            <option value="med">⚡ Средний</option>
+            <option value="normal">📋 Обычный</option>
           </select>
         </div>
       </div>
 
-      <div class="form-group">
-        <label>Ответственный</label>
-        <select id="taskAssigneeSelect" class="form-select">
+      <div class="form-row">
+        <label class="form-label">Ответственный</label>
+        <select id="taskAssigneeSelect" class="form-ctrl">
           <option value="GTP (Продюсер)">GTP (Продюсер)</option>
           <option value="Р. П. ГОСТ">Р. П. ГОСТ</option>
           <option value="Mad Nekit">Mad Nekit</option>
@@ -1287,61 +1265,200 @@
         </select>
       </div>
 
-      <div class="modal-buttons">
-        <button class="btn" onclick="CRM.closeTaskModal()">Отмена</button>
-        <button class="btn btn-primary" onclick="CRM.saveTask()">Сохранить задачу</button>
+      <div class="modal-btns">
+        <button class="btn" onclick="HUB.closeTaskModal()">Отмена</button>
+        <button class="btn btn-rust" onclick="HUB.saveTaskModal()">Сохранить задачу</button>
       </div>
     </div>
   </div>
 
-  <!-- MODAL: ADD ASSET LINK -->
-  <div class="modal-overlay" id="assetModal">
-    <div class="modal">
-      <h2>Добавить ассет или ссылку в хранилище</h2>
-      
-      <div class="form-group">
-        <label>Категория</label>
-        <select id="assetCategorySelect" class="form-select">
+  <!-- MODAL: ДОБАВИТЬ АССЕТ -->
+  <div class="modal-backdrop" id="assetModal">
+    <div class="modal-box">
+      <h3 class="modal-title">Добавить ассет или ссылку</h3>
+      <div class="form-row">
+        <label class="form-label">Категория</label>
+        <select id="assetCatSelect" class="form-ctrl">
           <option value="masters">🎧 Мастера и аудиодорожки</option>
-          <option value="video">🎬 Видео-исходники и клип</option>
-          <option value="art">🎨 Обложки, Canvas и Арт</option>
-          <option value="docs">📑 Документы, Договоры, Тексты</option>
+          <option value="video">🎬 Видео-исходники и клипы</option>
+          <option value="art">🎨 Обложки и Canvas</option>
+          <option value="docs">📑 Документы и ссылки</option>
         </select>
       </div>
-
-      <div class="form-group">
-        <label>Название ссылки / файла</label>
-        <input type="text" id="assetTitleInput" class="form-input" placeholder="Например: WAV Мастер трека «Так закалялась сталь»">
+      <div class="form-row">
+        <label class="form-label">Название</label>
+        <input type="text" id="assetTitleInput" class="form-ctrl" placeholder="Например: WAV Мастер альбома «4 LIFE»">
       </div>
-
-      <div class="form-group">
-        <label>URL Ссылки (Яндекс.Диск, Google Drive, Telegram, YouTube)</label>
-        <input type="url" id="assetUrlInput" class="form-input" placeholder="https://...">
+      <div class="form-row">
+        <label class="form-label">URL Ссылка</label>
+        <input type="url" id="assetUrlInput" class="form-ctrl" placeholder="https://disk.yandex.ru/...">
       </div>
-
-      <div class="modal-buttons">
-        <button class="btn" onclick="CRM.closeAssetModal()">Отмена</button>
-        <button class="btn btn-primary" onclick="CRM.saveAsset()">Сохранить ассет</button>
+      <div class="modal-btns">
+        <button class="btn" onclick="HUB.closeAssetModal()">Отмена</button>
+        <button class="btn btn-gold" onclick="HUB.saveAsset()">Сохранить</button>
       </div>
     </div>
   </div>
 
+  <!-- FOOTER -->
   <footer>
-    <p>Global Team Partners × La Dagon Sector Inc. (LDS Inc.) • Под эгидой лейбла 100PRO</p>
-    <p style="margin-top:0.3rem;">
-      Готово к размещению на собственном домене • Все данные сохраняются локально и синхронизируются через JSON
-    </p>
+    <p>Global Team Partners &times; La Dagon Sector Inc. &bull; Под эгидой легендарного лейбла 100PRO &bull; 2026</p>
+    <p style="margin-top:6px;">Все данные сохраняются локально в браузере и синхронизируются через JSON &bull; Готово для любого домена</p>
   </footer>
 
-  <!-- CORE CRM & PRESENTATION JAVASCRIPT ENGINE -->
+  <!-- CORE SCRIPT ENGINE -->
   <script>
-    const PRESENTATION_SLIDES = [
+    const INITIAL_NOTES = [
+      {
+        id: 'n1',
+        title: 'Концепция клипа «Так закалялась сталь»',
+        tag: 'track',
+        pinned: true,
+        body: 'Связать сырой пост-индустриальный антураж Горловки и Донбасса с современным кибер-брутализмом. Контраст: раскаленный оранжевый металл доменных печей против холодного бетона. В кадре: Р. П. ГОСТ и Mad Nekit в фирменной одежде LDS Inc.',
+        date: '23 Окт 2026, 03:10',
+        author: 'GTP'
+      },
+      {
+        id: 'n2',
+        title: 'Панчи для интро альбома «4 LIFE»',
+        tag: 'lyrics',
+        pinned: true,
+        body: '«Мы не меняли вектор, когда менялся курс / За нами Дагон Сектор, в колонках чистый пульс...» \nСохранить плотный бум-бэп 90 BPM с глубоким саб-басом без клиппинга.',
+        date: '23 Окт 2026, 02:45',
+        author: 'Р. П. ГОСТ'
+      },
+      {
+        id: 'n3',
+        title: 'Договоренность с Владом Валовым (100PRO)',
+        tag: '100pro',
+        pinned: false,
+        body: 'Согласовать финальный график премьеры релиза «4 LIFE». Подача в редакторские плейлисты за 14 дней. Лейбл предоставляет официальный бренд 100PRO для дистрибуции и баннеров.',
+        date: '22 Окт 2026, 21:00',
+        author: 'GTP'
+      },
+      {
+        id: 'n4',
+        title: 'Сценарий лайва в Tip Top Barbershop',
+        tag: 'meeting',
+        pinned: false,
+        body: 'Камерный сет: 3 трека с «4 LIFE» + классический трек «Клан Паутины». Сетап звука: 2 микрофона Shure SM7B, мониторы на стойках, дым-машина для атмосферы.',
+        date: '22 Окт 2026, 18:30',
+        author: 'Mad Nekit'
+      },
+      {
+        id: 'n5',
+        title: 'Сэмпл-пак для сольника Mad Nekit',
+        tag: 'track',
+        pinned: false,
+        body: 'Отобрать 15 авторских барабанных лупов и виниловых сбивок, обработанных через винтажный MPC. Выпустить в Telegram @ghostghettochild как прогрев перед сольником.',
+        date: '22 Окт 2026, 15:20',
+        author: 'Mad Nekit'
+      },
+      {
+        id: 'n6',
+        title: 'Синхронизация треков в единоборства (MMA)',
+        tag: 'meeting',
+        pinned: false,
+        body: 'Питчинг трека «Так закалялась сталь» в промоушены кулачных боев и лиги MMA для выходов бойцов на ринг. Инструментальная версия готова.',
+        date: '21 Окт 2026, 14:00',
+        author: 'GTP'
+      }
+    ];
+
+    const INITIAL_TASKS = [
+      { id: 't1', title: 'Стем-мастеринг альбома «4 LIFE» (-14 LUFS)', col: 'progress', priority: 'high', assignee: 'GTP (Продюсер)', desc: 'Проверка True Peak и спектрального баланса' },
+      { id: 't2', title: 'Рендер 10 Spotify Canvas в 9:16', col: 'done', priority: 'med', assignee: 'GTP (Продюсер)', desc: 'Индустриальные видео-лупы под каждый трек' },
+      { id: 't3', title: 'Утверждение даты премьеры с 100PRO', col: 'artist', priority: 'high', assignee: 'Р. П. ГОСТ', desc: 'Синхронизация с Владом Валовым' },
+      { id: 't4', title: 'ИИ-генерация мизансцен клипа (Kling/Runway)', col: 'progress', priority: 'high', assignee: 'GTP (Продюсер)', desc: 'Кадры доменных цехов и плавящейся стали' },
+      { id: 't5', title: 'Подготовка лайва в Tip Top Barbershop', col: 'backlog', priority: 'med', assignee: 'Mad Nekit', desc: 'Сценарий и технический райдер Shure' },
+      { id: 't6', title: 'Питчинг трека «Так закалялась сталь» в MMA', col: 'backlog', priority: 'normal', assignee: 'GTP (Продюсер)', desc: 'Контакты матчмейкеров и лиг' }
+    ];
+
+    const INITIAL_RELEASES = [
+      {
+        id: 'r1',
+        title: 'Командный альбом «4 LIFE» (100PRO)',
+        subtitle: 'Флагманский релиз осени • Лейбл 100PRO Records',
+        img: 'assets/images/album_4life_vinyl.jpg',
+        accent: '#C5A059',
+        progress: 70,
+        desc: 'Плотный бум-бэп, аналоговый сэмплинг, стем-мастеринг под Spotify (-14 LUFS), Canvas и винил.',
+        items: [
+          { text: 'Сведение и мастеринг (-14 LUFS)', done: true },
+          { text: 'Пакет из 10 Spotify Canvas', done: true },
+          { text: 'Согласование дропа с 100PRO', done: false },
+          { text: 'Плейлист-питчинг кураторам', done: false }
+        ]
+      },
+      {
+        id: 'r2',
+        title: 'Клип «Так закалялась сталь»',
+        subtitle: 'Официальное 4K видео • Осень',
+        img: 'assets/images/hero_steel_hardcore.jpg',
+        accent: '#D94823',
+        progress: 55,
+        desc: 'Синтез реальных уличных съемок и ИИ-генераций доменных цехов. Topaz 4K, субтитры EN/ES.',
+        items: [
+          { text: 'Съемка базового видеоматериала', done: true },
+          { text: 'ИИ-генерация цехов (Kling AI)', done: true },
+          { text: '4K-апскейл и финальный монтаж', done: false },
+          { text: 'Таймированные сабы EN/ES', done: false }
+        ]
+      },
+      {
+        id: 'r3',
+        title: 'Live в Tip Top Barbershop',
+        subtitle: 'Камерный лайв-сет «для своих» • Осень/Зима',
+        img: 'assets/images/tiptop_barbershop_live.jpg',
+        accent: '#10B981',
+        progress: 30,
+        desc: 'Кожа, хром опасных бритв, сигарный дым, микрофоны Shure SM7B, серия «Tip Top Sessions».',
+        items: [
+          { text: 'Бронь локации и выставление света', done: true },
+          { text: 'Запись чистого мультитрека', done: false },
+          { text: 'ИИ-очистка шумов (RX Voice)', done: false },
+          { text: 'Монтаж серии 3–4 лайв-роликов', done: false }
+        ]
+      },
+      {
+        id: 'r4',
+        title: 'Эфиры на VTRNK Radio',
+        subtitle: 'Регулярная медиа-фабрика • Постоянно',
+        img: 'assets/images/vtrnk_radio_studio.jpg',
+        accent: '#2563EB',
+        progress: 85,
+        desc: 'Студийный полумрак, фристайлы, ежедневная нарезка шортс/рилс и AI-дубляж ElevenLabs.',
+        items: [
+          { text: 'Прямые радиоэфиры и фристайлы', done: true },
+          { text: 'Авто-нарезка шортс с субтитрами', done: true },
+          { text: 'Ежедневный постинг в Telegram', done: true },
+          { text: 'AI-дубляж на английский', done: false }
+        ]
+      },
+      {
+        id: 'r5',
+        title: 'Сольный альбом Mad Nekit',
+        subtitle: 'Полноформатный сольник • Начало года',
+        img: 'assets/images/mad_nekit_producer.jpg',
+        accent: '#8B5CF6',
+        progress: 25,
+        desc: 'Авторские биты, виниловый сэмплинг на Akai MPC, тизерные сэмпл-паки и поддержка 100PRO.',
+        items: [
+          { text: 'Отбор треклиста и битов', done: true },
+          { text: 'Тизерный сэмпл-пак для фанов', done: false },
+          { text: 'Арт-пакет и обложка', done: false },
+          { text: 'Промо-кампания через 100PRO', done: false }
+        ]
+      }
+    ];
+
+    const SLIDES_DATA = [
       {
         eyebrow: '⚡ 01 / ДНК & МАНИФЕСТ СИНДИКАТА',
         title: '«Так закалялась сталь»',
-        subtitle: '«Р. П. ГОСТ / La Dagon Sector Inc.» — это не соло-артист, а монолитный хип-хоп синдикат. Плотный бум-бэп старой школы, шахтерская романтика Горловки и Донбасса, андеграунд Москвы и Петербурга.',
+        subtitle: '«Р. П. ГОСТ / La Dagon Sector Inc.» — не соло-артист, а самобытный хип-хоп синдикат. Плотный бум-бэп старой школы, шахтерская романтика Донбасса и Горловки, андеграунд Москвы и Петербурга.',
         img: 'assets/images/hero_steel_hardcore.jpg',
-        points: [
+        bullets: [
           { title: 'Братство LDS Inc.', desc: 'Р. П. ГОСТ (SpiderGhost), Mad Nekit, битмейкеры и уличные художники.' },
           { title: 'Школа 100PRO Records', desc: 'Преемственность легендарного лейбла Влада Валова (Bad Balance legacy).' },
           { title: 'Хаб @ghostghettochild', desc: 'Единый центр связи с фан-базой, закрытыми дропами и новостями.' },
@@ -1353,7 +1470,7 @@
         title: 'Командный альбом «4 LIFE»',
         subtitle: 'Флагманский лонгплей коллектива, выпускаемый под эгидой культового лейбла 100PRO. Выход на мировые стриминги со звуком высшей пробы.',
         img: 'assets/images/album_4life_vinyl.jpg',
-        points: [
+        bullets: [
           { title: 'Мастеринг -14 LUFS', desc: 'Точная калибровка под мировые стандарты Spotify и Apple Music Lossless.' },
           { title: 'Пакет Spotify Canvas', desc: '10 уникальных зацикленных видео-обложек 9:16 в кибер-брутализме.' },
           { title: 'Editorial Питчинг', desc: 'Подача в кураторские плейлисты Underground Rap, Beast Mode, Slavic Beats.' },
@@ -1365,7 +1482,7 @@
         title: 'Клип «Так закалялась сталь»',
         subtitle: 'Официальный клип в 4K. Сочетание документальных уличных съемок и кинематографичных ИИ-мизансцен индустриальных заводов.',
         img: 'assets/images/hero_steel_hardcore.jpg',
-        points: [
+        bullets: [
           { title: 'ИИ-визуализация цехов', desc: 'Генерация раскаленного металла и доменных печей (Runway Gen-3 / Kling).' },
           { title: 'Topaz Video 4K', desc: 'Нейросетевой апскейл и цветокоррекция до голливудской четкости.' },
           { title: 'Сабы EN / ES / DE', desc: 'Выход на мировой YouTube с профессиональным таймингом субтитров.' },
@@ -1377,7 +1494,7 @@
         title: 'Live в Tip Top Barbershop',
         subtitle: 'Атмосферный камерный лайв-сет «для своих». Кожа винтажных кресел, хром бритв, дым и микрофоны Shure SM7B.',
         img: 'assets/images/tiptop_barbershop_live.jpg',
-        points: [
+        bullets: [
           { title: 'Серия «Tip Top Sessions»', desc: '3–4 полноценных live-клипа для YouTube и VK Видео.' },
           { title: 'Чистый мультитрек', desc: 'Запись прямого аудио-сигнала без помех.' },
           { title: 'RX Voice De-Noise', desc: 'ИИ-очистка вокала от комнатного шума для кристального звука.' },
@@ -1389,7 +1506,7 @@
         title: 'Эфиры на VTRNK Radio',
         subtitle: 'Регулярная фабрика контента на волнах андеграундного радиошоу VTRNK. Разборы треков, фристайлы и откровенные диалоги.',
         img: 'assets/images/vtrnk_radio_studio.jpg',
-        points: [
+        bullets: [
           { title: 'Авто-нарезка Opus Clip', desc: 'Ежедневная нарезка 1–2 виральных шортс с яркими субтитрами.' },
           { title: 'Охват 500,000+ органики', desc: 'Посевы в Telegram, YouTube Shorts, VK Клипы и TikTok.' },
           { title: 'AI Voice Dubbing', desc: 'ElevenLabs мультиязычный перевод лучших фрагментов на английский.' },
@@ -1401,7 +1518,7 @@
         title: 'Сольный альбом Mad Nekit',
         subtitle: 'Полноформатный сольник в начале следующего года. Презентация авторского битмейкинга и сольного МС-почерка.',
         img: 'assets/images/mad_nekit_producer.jpg',
-        points: [
+        bullets: [
           { title: 'Лаборатория бум-бэпа', desc: 'Плотный сэмплинг с винила, раритетные сбивки на Akai MPC.' },
           { title: 'Тизерный сэмпл-пак', desc: 'Дроп авторских лупов и звуков для фанатов и продюсеров.' },
           { title: 'Прогрев через «4 LIFE»', desc: 'Конвертация уже сформированной базы слушателей командного альбома.' },
@@ -1413,7 +1530,7 @@
         title: 'Global Team Partners × LDS',
         subtitle: 'Технологический продюсерский симбиоз без кабальных контрактов. Артист сохраняет 100% авторских прав и полную свободу слова.',
         img: 'assets/images/album_4life_vinyl.jpg',
-        points: [
+        bullets: [
           { title: '0% рутины для артиста', desc: 'Мы берем на себя видео, ИИ-графику, дистрибуцию, SMM и питчинг.' },
           { title: 'Rev-Share модель', desc: 'Справедливое распределение прибыли от прироста стриминга и мерча.' },
           { title: 'Sync в MMA и Кино', desc: 'Лицензирование треков в лиги единоборств, промоушены и видеоигры.' },
@@ -1422,182 +1539,28 @@
       }
     ];
 
-    const DEFAULT_RELEASES = [
-      {
-        id: 'rel_4life',
-        title: 'Командный альбом «4 LIFE»',
-        subtitle: 'Лейбл: 100PRO Records • Сроки: Осень',
-        thumbnail: 'assets/images/album_4life_vinyl.jpg',
-        progress: 65,
-        items: [
-          { text: 'Сведение и стем-мастеринг (-14 LUFS)', done: true },
-          { text: 'Генерация пакета Spotify Canvas (10 лупов)', done: true },
-          { text: 'Согласование даты дропа с лейблом 100PRO', done: false },
-          { text: 'Подача питчинга редакторам стримингов', done: false }
-        ]
-      },
-      {
-        id: 'rel_steel',
-        title: 'Клип «Так закалялась сталь»',
-        subtitle: 'Официальное 4K видео-манифест • Сроки: Осень',
-        thumbnail: 'assets/images/hero_steel_hardcore.jpg',
-        progress: 50,
-        items: [
-          { text: 'Съемка базового видеоматериала', done: true },
-          { text: 'ИИ-генерация индустриальных цехов (Runway/Kling)', done: true },
-          { text: '4K-апскейл и финальный монтаж (Topaz)', done: false },
-          { text: 'Таймированные субтитры (Русский / Английский)', done: false }
-        ]
-      },
-      {
-        id: 'rel_tiptop',
-        title: 'Live в Tip Top Barbershop',
-        subtitle: 'Камерный лайв-сет «для своих» • Сроки: Осень/Зима',
-        thumbnail: 'assets/images/tiptop_barbershop_live.jpg',
-        progress: 25,
-        items: [
-          { text: 'Бронь локации и согласование света', done: true },
-          { text: 'Запись мультитрека чистого звука', done: false },
-          { text: 'ИИ-очистка голоса от шумов (RX Voice)', done: false },
-          { text: 'Монтаж серии 3–4 полноценных лайв-роликов', done: false }
-        ]
-      },
-      {
-        id: 'rel_vtrnk',
-        title: 'Эфиры на VTRNK Radio',
-        subtitle: 'Регулярная медиа-фабрика • Постоянно',
-        thumbnail: 'assets/images/vtrnk_radio_studio.jpg',
-        progress: 80,
-        items: [
-          { text: 'Прямые радиоэфиры и фристайлы', done: true },
-          { text: 'Авто-нарезка виральных шортс с субтитрами', done: true },
-          { text: 'Ежедневный постинг в @ghostghettochild', done: true },
-          { text: 'AI-дубляж лучших хайлайтов на английский', done: false }
-        ]
-      },
-      {
-        id: 'rel_madnekit',
-        title: 'Сольный альбом Mad Nekit',
-        subtitle: 'Полноформатный сольник • Сроки: Начало года',
-        thumbnail: 'assets/images/mad_nekit_producer.jpg',
-        progress: 20,
-        items: [
-          { text: 'Отбор треклиста и авторских битов', done: true },
-          { text: 'Выпуск тизерного сэмпл-пака для фанов', done: false },
-          { text: 'Оформление арт-пакета и обложки', done: false },
-          { text: 'Промо-кампания через экосистему 100PRO', done: false }
-        ]
-      }
+    const INITIAL_ASSETS = [
+      { cat: 'masters', title: 'Мастера альбома «4 LIFE» (WAV / Lossless)', url: 'https://cloud.mail.ru' },
+      { cat: 'video', title: 'Исходные съемки клипа «Так закалялась сталь»', url: 'https://disk.yandex.ru' },
+      { cat: 'art', title: 'Пакет Spotify Canvas (9:16 MP4)', url: 'https://drive.google.com' },
+      { cat: 'docs', title: 'Официальный хаб в Telegram: @ghostghettochild', url: 'https://t.me/ghostghettochild' },
+      { cat: 'docs', title: 'Официальный сайт лейбла 100PRO', url: 'http://100pro.su' }
     ];
 
-    const DEFAULT_TASKS = [
-      {
-        id: 't1',
-        title: 'Финальный аудио-аудит альбома «4 LIFE»',
-        desc: 'Проверить True Peak и LUFS каждого трека под требования Spotify (-14 LUFS) и Apple Music.',
-        col: 'gtp_progress',
-        tag: 'audio',
-        assignee: 'GTP (Продюсер)'
-      },
-      {
-        id: 't2',
-        title: 'Рендер Spotify Canvas для «4 LIFE»',
-        desc: 'Собрать 10 видео-лупов 9:16 в индустриально-кибернетической стилистике.',
-        col: 'done',
-        tag: 'video',
-        assignee: 'GTP (Продюсер)'
-      },
-      {
-        id: 't3',
-        title: 'Согласование даты премьеры с 100PRO',
-        desc: 'Финальная синхронизация с Владом Валовым по графику дистрибуции.',
-        col: 'artist_action',
-        tag: 'release',
-        assignee: 'Р. П. ГОСТ'
-      },
-      {
-        id: 't4',
-        title: 'Генерация сцен для клипа «Так закалялась сталь»',
-        desc: 'Рендер кадров раскаленного металла, плавильных цехов и символики LDS Inc. через Kling AI.',
-        col: 'gtp_progress',
-        tag: 'video',
-        assignee: 'GTP (Продюсер)'
-      },
-      {
-        id: 't5',
-        title: 'Сценарий лайва в Tip Top Barbershop',
-        desc: 'Расстановка 3 камер, запись прямого аудиосигнала с микрофонов Shure.',
-        col: 'backlog',
-        tag: 'live',
-        assignee: 'Mad Nekit'
-      },
-      {
-        id: 't6',
-        title: 'Питчинг трека «Так закалялась сталь» в MMA',
-        desc: 'Подготовка питч-письма для промоушенов кулачных боев и спортивных каналов.',
-        col: 'backlog',
-        tag: 'sync',
-        assignee: 'GTP (Продюсер)'
-      }
-    ];
-
-    const DEFAULT_ASSETS = [
-      {
-        cat: 'masters',
-        title: 'Мастера альбома «4 LIFE» (WAV / Lossless)',
-        url: 'https://cloud.mail.ru'
-      },
-      {
-        cat: 'video',
-        title: 'Исходные съемки клипа «Так закалялась сталь»',
-        url: 'https://disk.yandex.ru'
-      },
-      {
-        cat: 'art',
-        title: 'Пакет Spotify Canvas (9:16 MP4)',
-        url: 'https://drive.google.com'
-      },
-      {
-        cat: 'docs',
-        title: 'Официальный хаб в Telegram: @ghostghettochild',
-        url: 'https://t.me/ghostghettochild'
-      },
-      {
-        cat: 'docs',
-        title: 'Официальный сайт лейбла 100PRO',
-        url: 'http://100pro.su'
-      }
-    ];
-
-    const DEFAULT_FEED = [
-      {
-        id: 'f1',
-        author: 'Продюсер (GTP)',
-        date: '23 Октября 2026, 02:40',
-        text: 'Развернут центральный CRM-хаб Global Team Partners × LDS Inc. с интерактивной презентацией и кинематографичными изображениями.'
-      },
-      {
-        id: 'f2',
-        author: 'Р. П. ГОСТ',
-        date: '23 Октября 2026, 01:15',
-        text: 'Готовится командный альбом 4 LIFE на 100PRO, клип «Так закалялась сталь», лайв в Tip Top Barbershop, эфиры на VTRNK Radio и сольник Mad Nekit в начале года.'
-      }
-    ];
-
-    const CRM = {
+    const HUB = {
       state: {
         role: 'producer',
+        currentNoteFilter: 'all',
+        editingNoteId: null,
         currentSlide: 0,
-        releases: [],
+        notes: [],
         tasks: [],
-        assets: [],
-        feed: [],
-        currentFilter: 'all',
-        editingTaskId: null
+        releases: [],
+        assets: []
       },
 
       init() {
-        const saved = localStorage.getItem('gtp_lds_crm_state_v2');
+        const saved = localStorage.getItem('gtp_kmv_hub_state');
         if (saved) {
           try {
             this.state = JSON.parse(saved);
@@ -1608,192 +1571,217 @@
           this.loadDefaults();
         }
         this.renderAll();
-        this.initKeyboardNav();
       },
 
       loadDefaults() {
+        this.state.notes = JSON.parse(JSON.stringify(INITIAL_NOTES));
+        this.state.tasks = JSON.parse(JSON.stringify(INITIAL_TASKS));
+        this.state.releases = JSON.parse(JSON.stringify(INITIAL_RELEASES));
+        this.state.assets = JSON.parse(JSON.stringify(INITIAL_ASSETS));
         this.state.currentSlide = 0;
-        this.state.releases = JSON.parse(JSON.stringify(DEFAULT_RELEASES));
-        this.state.tasks = JSON.parse(JSON.stringify(DEFAULT_TASKS));
-        this.state.assets = JSON.parse(JSON.stringify(DEFAULT_ASSETS));
-        this.state.feed = JSON.parse(JSON.stringify(DEFAULT_FEED));
         this.save();
       },
 
       save() {
-        localStorage.setItem('gtp_lds_crm_state_v2', JSON.stringify(this.state));
+        localStorage.setItem('gtp_kmv_hub_state', JSON.stringify(this.state));
+        this.updateBadges();
+      },
+
+      updateBadges() {
+        document.getElementById('badgeNotes').innerText = this.state.notes.length;
+        document.getElementById('badgeTasks').innerText = this.state.tasks.length;
+        document.getElementById('statNotesCount').innerText = this.state.notes.length;
+      },
+
+      setRole(r) {
+        this.state.role = r;
+        this.renderAll();
       },
 
       switchTab(tabId) {
         document.querySelectorAll('.nav-tabs .tab-btn').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
         
         event.currentTarget.classList.add('active');
         const target = document.getElementById('tab-' + tabId);
         if (target) target.classList.add('active');
       },
 
-      switchRole(role) {
-        this.state.role = role;
-        const authorEl = document.getElementById('currentAuthorLabel');
-        if (authorEl) {
-          authorEl.innerText = role === 'artist' ? 'Р. П. ГОСТ / Mad Nekit' : 'Продюсер (GTP)';
-        }
-        this.renderAll();
-      },
-
       renderAll() {
+        this.renderNotes();
+        this.renderTasks();
         this.renderSlide();
         this.renderReleases();
-        this.renderKanban();
         this.renderAssets();
-        this.renderFeed();
+        this.updateBadges();
       },
 
       /* ========================================================
-         PRESENTATION SLIDE CONTROLLER
+         NOTES ENGINE
          ======================================================== */
-      renderSlide() {
-        const idx = this.state.currentSlide;
-        const s = PRESENTATION_SLIDES[idx];
-        if (!s) return;
-
-        document.getElementById('deckSlideIndicator').innerText = `Слайд 0${idx + 1} / 0${PRESENTATION_SLIDES.length} • ${s.title}`;
-        document.getElementById('slideEyebrow').innerText = s.eyebrow;
-        document.getElementById('slideHeading').innerText = s.title;
-        document.getElementById('slideSubtitle').innerText = s.subtitle;
-        document.getElementById('slideImg').src = s.img;
-
-        const pointsContainer = document.getElementById('slidePointsGrid');
-        pointsContainer.innerHTML = s.points.map(p => `
-          <div class="slide-point-card">
-            <div class="slide-point-title"><span>✦</span> ${p.title}</div>
-            <div class="slide-point-desc">${p.desc}</div>
-          </div>
-        `).join('');
-
-        const dotsContainer = document.getElementById('deckDots');
-        dotsContainer.innerHTML = PRESENTATION_SLIDES.map((_, i) => `
-          <button class="dot-btn ${i === idx ? 'active' : ''}" onclick="CRM.goToSlide(${i})" title="Слайд ${i + 1}"></button>
-        `).join('');
-      },
-
-      nextSlide() {
-        this.state.currentSlide = (this.state.currentSlide + 1) % PRESENTATION_SLIDES.length;
-        this.renderSlide();
-      },
-
-      prevSlide() {
-        this.state.currentSlide = (this.state.currentSlide - 1 + PRESENTATION_SLIDES.length) % PRESENTATION_SLIDES.length;
-        this.renderSlide();
-      },
-
-      goToSlide(index) {
-        this.state.currentSlide = index;
-        this.renderSlide();
-        document.getElementById('deckContainer').scrollIntoView({ behavior: 'smooth' });
-      },
-
-      toggleFullscreenDeck() {
-        const el = document.getElementById('deckContainer');
-        if (!document.fullscreenElement) {
-          el.requestFullscreen().catch(err => alert("Fullscreen error: " + err.message));
-        } else {
-          document.exitFullscreen();
+      renderNotes() {
+        const grid = document.getElementById('notesGrid');
+        if (!grid) return;
+        const q = (document.getElementById('notesSearchInput')?.value || '').toLowerCase();
+        
+        let list = [...this.state.notes];
+        if (this.state.currentNoteFilter !== 'all') {
+          list = list.filter(n => n.tag === this.state.currentNoteFilter);
         }
-      },
+        if (q) {
+          list = list.filter(n => n.title.toLowerCase().includes(q) || n.body.toLowerCase().includes(q));
+        }
 
-      initKeyboardNav() {
-        window.addEventListener('keydown', (e) => {
-          if (document.getElementById('tab-presentation').classList.contains('active')) {
-            if (e.key === 'ArrowRight') this.nextSlide();
-            if (e.key === 'ArrowLeft') this.prevSlide();
-          }
-        });
-      },
+        // Pinned notes on top
+        list.sort((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0));
 
-      /* ========================================================
-         RELEASES WITH VISUAL THUMBNAILS
-         ======================================================== */
-      renderReleases() {
-        const container = document.getElementById('releasesContainer');
-        if (!container) return;
-        container.innerHTML = this.state.releases.map((rel, relIdx) => {
-          const checklistHtml = rel.items.map((item, itemIdx) => `
-            <li>
-              <input type="checkbox" ${item.done ? 'checked' : ''} onchange="CRM.toggleReleaseItem(${relIdx}, ${itemIdx})">
-              <span style="${item.done ? 'text-decoration:line-through; color:var(--text-muted);' : ''}">${item.text}</span>
-            </li>
-          `).join('');
+        if (list.length === 0) {
+          grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:40px; color:var(--text-dim);">Заметок не найдено. Нажмите «+ Новая заметка», чтобы записать идею.</div>';
+          return;
+        }
 
-          return `
-            <div class="release-card">
-              ${rel.thumbnail ? `<img src="${rel.thumbnail}" class="release-thumbnail" alt="${rel.title}">` : ''}
-              <div class="release-card-body">
-                <div class="release-header">
-                  <div>
-                    <div class="release-title">${rel.title}</div>
-                    <div class="release-tagline">${rel.subtitle}</div>
-                  </div>
-                  <span class="badge ${rel.progress === 100 ? 'badge-green' : 'badge-rust'}">${rel.progress}%</span>
-                </div>
-                <div class="progress-bar-bg">
-                  <div class="progress-bar-fill" style="width: ${rel.progress}%;"></div>
-                </div>
-                <ul class="release-checklist">
-                  ${checklistHtml}
-                </ul>
+        grid.innerHTML = list.map(n => `
+          <div class="note-card ${n.pinned ? 'pinned' : ''}">
+            <div>
+              <div class="note-header">
+                <div class="note-title">${n.title}</div>
+                <span class="note-tag tag-${n.tag}">${this.noteTagLabel(n.tag)}</span>
+              </div>
+              <div class="note-body" style="margin-top:10px;">${n.body}</div>
+            </div>
+
+            <div class="note-footer">
+              <span>✍️ ${n.author || 'Автор'} &bull; ${n.date}</span>
+              <div class="note-actions">
+                <button class="btn-icon" onclick="HUB.togglePinNote('${n.id}')" title="${n.pinned ? 'Открепить' : 'Закрепить'}">${n.pinned ? '📌' : '📍'}</button>
+                <button class="btn-icon" onclick="HUB.editNote('${n.id}')" title="Редактировать">✎</button>
+                <button class="btn-icon" onclick="HUB.copyNote('${n.id}')" title="Скопировать текст">📋</button>
+                <button class="btn-icon" onclick="HUB.deleteNote('${n.id}')" title="Удалить">✕</button>
               </div>
             </div>
-          `;
-        }).join('');
+          </div>
+        `).join('');
       },
 
-      toggleReleaseItem(relIdx, itemIdx) {
-        const item = this.state.releases[relIdx].items[itemIdx];
-        item.done = !item.done;
-        
-        const total = this.state.releases[relIdx].items.length;
-        const done = this.state.releases[relIdx].items.filter(i => i.done).length;
-        this.state.releases[relIdx].progress = Math.round((done / total) * 100);
+      noteTagLabel(tag) {
+        const map = {
+          track: 'Идея трека', lyrics: 'Лирика', '100pro': '100PRO', meeting: 'Встреча', general: 'Общее'
+        };
+        return map[tag] || tag;
+      },
 
+      filterNotes(tag, btn) {
+        this.state.currentNoteFilter = tag;
+        document.querySelectorAll('.note-pill').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        this.renderNotes();
+      },
+
+      openNoteModal() {
+        this.state.editingNoteId = null;
+        document.getElementById('noteModalTitle').innerText = 'Новая заметка в блокнот';
+        document.getElementById('noteTitleInput').value = '';
+        document.getElementById('noteBodyInput').value = '';
+        document.getElementById('noteTagSelect').value = 'track';
+        document.getElementById('notePinCheck').checked = false;
+        document.getElementById('noteModal').classList.add('active');
+      },
+
+      closeNoteModal() {
+        document.getElementById('noteModal').classList.remove('active');
+      },
+
+      editNote(id) {
+        const n = this.state.notes.find(x => x.id === id);
+        if (!n) return;
+        this.state.editingNoteId = id;
+        document.getElementById('noteModalTitle').innerText = 'Редактировать заметку';
+        document.getElementById('noteTitleInput').value = n.title;
+        document.getElementById('noteBodyInput').value = n.body;
+        document.getElementById('noteTagSelect').value = n.tag;
+        document.getElementById('notePinCheck').checked = !!n.pinned;
+        document.getElementById('noteModal').classList.add('active');
+      },
+
+      saveNote() {
+        const title = document.getElementById('noteTitleInput').value.trim();
+        const body = document.getElementById('noteBodyInput').value.trim();
+        const tag = document.getElementById('noteTagSelect').value;
+        const pinned = document.getElementById('notePinCheck').checked;
+        if (!title && !body) { alert('Введите заголовок или текст'); return; }
+
+        const author = this.state.role === 'artist' ? 'Р. П. ГОСТ' : 'GTP';
+        const date = new Date().toLocaleString('ru-RU', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+
+        if (this.state.editingNoteId) {
+          const n = this.state.notes.find(x => x.id === this.state.editingNoteId);
+          if (n) {
+            n.title = title || 'Без названия';
+            n.body = body;
+            n.tag = tag;
+            n.pinned = pinned;
+          }
+        } else {
+          this.state.notes.unshift({
+            id: 'n_' + Date.now(),
+            title: title || 'Заметка',
+            body, tag, pinned, date, author
+          });
+        }
         this.save();
-        this.renderReleases();
+        this.closeNoteModal();
+        this.renderNotes();
+      },
+
+      togglePinNote(id) {
+        const n = this.state.notes.find(x => x.id === id);
+        if (n) {
+          n.pinned = !n.pinned;
+          this.save();
+          this.renderNotes();
+        }
+      },
+
+      copyNote(id) {
+        const n = this.state.notes.find(x => x.id === id);
+        if (n) {
+          navigator.clipboard.writeText(`${n.title}\n\n${n.body}`);
+          alert('Текст заметки скопирован в буфер обмена!');
+        }
+      },
+
+      deleteNote(id) {
+        if (!confirm('Удалить эту заметку?')) return;
+        this.state.notes = this.state.notes.filter(x => x.id !== id);
+        this.save();
+        this.renderNotes();
       },
 
       /* ========================================================
-         KANBAN CRM
+         TASKS ENGINE
          ======================================================== */
-      renderKanban() {
-        const cols = { backlog: [], gtp_progress: [], artist_action: [], done: [] };
-        let filtered = this.state.tasks;
-        if (this.state.currentFilter !== 'all') {
-          filtered = filtered.filter(t => t.tag === this.state.currentFilter);
-        }
-
-        filtered.forEach(task => {
-          if (cols[task.col]) cols[task.col].push(task);
+      renderTasks() {
+        const cols = { backlog: [], progress: [], artist: [], done: [] };
+        this.state.tasks.forEach(t => {
+          if (cols[t.col]) cols[t.col].push(t);
         });
 
-        document.getElementById('totalTasksCount').innerText = this.state.tasks.length;
-        for (const [colName, tasks] of Object.entries(cols)) {
+        for (const [colName, list] of Object.entries(cols)) {
           const countEl = document.getElementById('count-' + colName);
-          const colEl = document.getElementById('col-' + colName);
-          if (countEl) countEl.innerText = tasks.length;
-          if (colEl) {
-            colEl.innerHTML = tasks.map(t => `
-              <div class="task-card" draggable="true" ondragstart="CRM.drag(event, '${t.id}')">
-                <div class="task-tags">
-                  <span class="tag tag-${t.tag}">${this.tagLabel(t.tag)}</span>
+          const box = document.getElementById('col-' + colName);
+          if (countEl) countEl.innerText = list.length;
+          if (box) {
+            box.innerHTML = list.map(t => `
+              <div class="task-item" draggable="true" ondragstart="HUB.dragTask(event, '${t.id}')">
+                <div class="task-item-head">
+                  <span class="task-priority p-${t.priority || 'normal'}">${this.priorityLabel(t.priority)}</span>
+                  <button class="btn-icon" onclick="HUB.deleteTask('${t.id}')" title="Удалить">✕</button>
                 </div>
-                <div class="task-title">${t.title}</div>
-                ${t.desc ? `<div class="task-desc">${t.desc}</div>` : ''}
-                <div class="task-footer">
-                  <span class="task-assignee">👤 ${t.assignee}</span>
-                  <div class="task-actions">
-                    <button class="btn-icon" onclick="CRM.editTask('${t.id}')" title="Редактировать">✎</button>
-                    <button class="btn-icon" onclick="CRM.deleteTask('${t.id}')" title="Удалить">✕</button>
-                  </div>
+                <div class="task-name">${t.title}</div>
+                ${t.desc ? `<div class="task-sub">${t.desc}</div>` : ''}
+                <div class="task-foot">
+                  <span>👤 ${t.assignee}</span>
+                  <button class="task-btn-move" onclick="HUB.cycleTaskStatus('${t.id}')">Сменить статус &rarr;</button>
                 </div>
               </div>
             `).join('');
@@ -1801,125 +1789,214 @@
         }
       },
 
-      tagLabel(tag) {
-        const map = {
-          audio: 'Звук', video: 'Видео', smm: 'SMM', release: '100PRO', live: 'Live', sync: 'Sync'
-        };
-        return map[tag] || tag;
+      priorityLabel(p) {
+        if (p === 'high') return '🔥 Высокий';
+        if (p === 'med') return '⚡ Средний';
+        return '📋 Обычный';
       },
 
-      filterKanban(tag, btn) {
-        this.state.currentFilter = tag;
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        this.renderKanban();
-      },
+      quickAddTask() {
+        const title = document.getElementById('quickTaskInput').value.trim();
+        if (!title) return;
+        const col = document.getElementById('quickTaskCol').value;
+        const assignee = document.getElementById('quickTaskAssignee').value;
 
-      drag(ev, taskId) {
-        ev.dataTransfer.setData("text/plain", taskId);
-      },
-      dragOver(ev) {
-        ev.preventDefault();
-      },
-      drop(ev, colName) {
-        ev.preventDefault();
-        const taskId = ev.dataTransfer.getData("text/plain");
-        const task = this.state.tasks.find(t => t.id === taskId);
-        if (task && task.col !== colName) {
-          task.col = colName;
-          this.save();
-          this.renderKanban();
-        }
+        this.state.tasks.push({
+          id: 't_' + Date.now(),
+          title, col, assignee, priority: 'med', desc: ''
+        });
+        document.getElementById('quickTaskInput').value = '';
+        this.save();
+        this.renderTasks();
       },
 
       openTaskModal() {
-        this.state.editingTaskId = null;
-        document.getElementById('taskModalTitle').innerText = 'Новая задача в CRM';
         document.getElementById('taskTitleInput').value = '';
         document.getElementById('taskDescInput').value = '';
         document.getElementById('taskColSelect').value = 'backlog';
-        document.getElementById('taskTagSelect').value = 'audio';
+        document.getElementById('taskPrioritySelect').value = 'med';
         document.getElementById('taskModal').classList.add('active');
       },
       closeTaskModal() {
         document.getElementById('taskModal').classList.remove('active');
       },
-      editTask(id) {
-        const task = this.state.tasks.find(t => t.id === id);
-        if (!task) return;
-        this.state.editingTaskId = id;
-        document.getElementById('taskModalTitle').innerText = 'Редактировать задачу';
-        document.getElementById('taskTitleInput').value = task.title;
-        document.getElementById('taskDescInput').value = task.desc || '';
-        document.getElementById('taskColSelect').value = task.col;
-        document.getElementById('taskTagSelect').value = task.tag;
-        document.getElementById('taskAssigneeSelect').value = task.assignee;
-        document.getElementById('taskModal').classList.add('active');
-      },
-      saveTask() {
+      saveTaskModal() {
         const title = document.getElementById('taskTitleInput').value.trim();
-        if (!title) { alert('Пожалуйста, введите название задачи'); return; }
-
+        if (!title) { alert('Введите название задачи'); return; }
         const desc = document.getElementById('taskDescInput').value.trim();
         const col = document.getElementById('taskColSelect').value;
-        const tag = document.getElementById('taskTagSelect').value;
+        const priority = document.getElementById('taskPrioritySelect').value;
         const assignee = document.getElementById('taskAssigneeSelect').value;
 
-        if (this.state.editingTaskId) {
-          const task = this.state.tasks.find(t => t.id === this.state.editingTaskId);
-          if (task) {
-            task.title = title;
-            task.desc = desc;
-            task.col = col;
-            task.tag = tag;
-            task.assignee = assignee;
-          }
-        } else {
-          this.state.tasks.push({
-            id: 't_' + Date.now(),
-            title, desc, col, tag, assignee
-          });
-        }
+        this.state.tasks.push({
+          id: 't_' + Date.now(),
+          title, desc, col, priority, assignee
+        });
         this.save();
         this.closeTaskModal();
-        this.renderKanban();
+        this.renderTasks();
+      },
+      cycleTaskStatus(id) {
+        const t = this.state.tasks.find(x => x.id === id);
+        if (!t) return;
+        const order = ['backlog', 'progress', 'artist', 'done'];
+        const nextIdx = (order.indexOf(t.col) + 1) % order.length;
+        t.col = order[nextIdx];
+        this.save();
+        this.renderTasks();
       },
       deleteTask(id) {
         if (!confirm('Удалить эту задачу?')) return;
-        this.state.tasks = this.state.tasks.filter(t => t.id !== id);
+        this.state.tasks = this.state.tasks.filter(x => x.id !== id);
         this.save();
-        this.renderKanban();
+        this.renderTasks();
+      },
+      dragTask(ev, id) { ev.dataTransfer.setData("text/plain", id); },
+      dragOver(ev) { ev.preventDefault(); },
+      dropTask(ev, colName) {
+        ev.preventDefault();
+        const id = ev.dataTransfer.getData("text/plain");
+        const t = this.state.tasks.find(x => x.id === id);
+        if (t && t.col !== colName) {
+          t.col = colName;
+          this.save();
+          this.renderTasks();
+        }
+      },
+
+      /* ========================================================
+         PRESENTATION SLIDES
+         ======================================================== */
+      renderSlide() {
+        const idx = this.state.currentSlide;
+        const s = SLIDES_DATA[idx];
+        if (!s) return;
+
+        document.getElementById('deckIndicator').innerText = `СЛАЙД 0${idx + 1} / 0${SLIDES_DATA.length} • ${s.title}`;
+        document.getElementById('deckEyebrow').innerText = s.eyebrow;
+        document.getElementById('deckTitle').innerText = s.title;
+        document.getElementById('deckDesc').innerText = s.subtitle;
+        document.getElementById('deckImg').src = s.img;
+
+        document.getElementById('deckBullets').innerHTML = s.bullets.map(b => `
+          <div class="deck-bullet">
+            <div class="deck-bullet-title">✦ ${b.title}</div>
+            <div class="deck-bullet-desc">${b.desc}</div>
+          </div>
+        `).join('');
+
+        document.getElementById('deckDots').innerHTML = SLIDES_DATA.map((_, i) => `
+          <button class="deck-dot ${i === idx ? 'active' : ''}" onclick="HUB.goToSlide(${i})"></button>
+        `).join('');
+      },
+
+      nextSlide() {
+        this.state.currentSlide = (this.state.currentSlide + 1) % SLIDES_DATA.length;
+        this.renderSlide();
+      },
+      prevSlide() {
+        this.state.currentSlide = (this.state.currentSlide - 1 + SLIDES_DATA.length) % SLIDES_DATA.length;
+        this.renderSlide();
+      },
+      goToSlide(i) {
+        this.state.currentSlide = i;
+        this.renderSlide();
+      },
+      toggleFullscreenDeck() {
+        const frame = document.getElementById('pitchDeckFrame');
+        if (!document.fullscreenElement) {
+          frame.requestFullscreen().catch(err => alert("Fullscreen error: " + err.message));
+        } else {
+          document.exitFullscreen();
+        }
+      },
+
+      /* ========================================================
+         RELEASES (5 PILLARS)
+         ======================================================== */
+      renderReleases() {
+        const grid = document.getElementById('releasesGrid');
+        if (!grid) return;
+
+        grid.innerHTML = this.state.releases.map((r, rIdx) => {
+          const checklist = r.items.map((item, itemIdx) => `
+            <li style="display:flex; align-items:center; gap:8px; font-size:0.82rem; margin-bottom:4px;">
+              <input type="checkbox" ${item.done ? 'checked' : ''} onchange="HUB.toggleReleaseItem(${rIdx}, ${itemIdx})" style="accent-color:var(--gold); cursor:pointer;">
+              <span style="${item.done ? 'text-decoration:line-through; color:var(--text-dim);' : ''}">${item.text}</span>
+            </li>
+          `).join('');
+
+          return `
+            <div class="hub-card" style="--card-accent: ${r.accent};">
+              <div>
+                <img src="${r.img}" class="release-thumb" alt="${r.title}">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                  <h3 class="card-title">${r.title}</h3>
+                  <span class="badge-hot" style="border-color:${r.accent}; color:${r.accent};">${r.progress}%</span>
+                </div>
+                <p class="card-desc" style="margin-bottom:8px;">${r.desc}</p>
+                <div class="progress-line">
+                  <div class="progress-fill" style="width:${r.progress}%;"></div>
+                </div>
+                <ul style="list-style:none; padding:0; margin:10px 0 16px;">
+                  ${checklist}
+                </ul>
+              </div>
+              <button class="btn-card" onclick="HUB.switchTab('pitch'); HUB.goToSlide(${rIdx});">
+                <span>Смотреть концепцию слайда</span>
+                <span>&rarr;</span>
+              </button>
+            </div>
+          `;
+        }).join('');
+      },
+
+      toggleReleaseItem(rIdx, itemIdx) {
+        const item = this.state.releases[rIdx].items[itemIdx];
+        item.done = !item.done;
+        const total = this.state.releases[rIdx].items.length;
+        const done = this.state.releases[rIdx].items.filter(x => x.done).length;
+        this.state.releases[rIdx].progress = Math.round((done / total) * 100);
+        this.save();
+        this.renderReleases();
       },
 
       /* ========================================================
          ASSETS
          ======================================================== */
       renderAssets() {
-        const container = document.getElementById('assetsContainer');
-        if (!container) return;
+        const grid = document.getElementById('assetsGrid');
+        if (!grid) return;
         const categories = {
-          masters: { title: '🎧 Мастера и аудиодорожки', items: [] },
-          video: { title: '🎬 Видео-исходники и клип', items: [] },
-          art: { title: '🎨 Обложки, Canvas и Арт', items: [] },
-          docs: { title: '📑 Документы, Договоры, Ссылки', items: [] }
+          masters: { icon: '🎧', title: 'Мастера и дорожки (WAV)', items: [] },
+          video: { icon: '🎬', title: 'Видео-исходники и клип', items: [] },
+          art: { icon: '🎨', title: 'Обложки, Canvas и Арт', items: [] },
+          docs: { icon: '📑', title: 'Документы и каналы', items: [] }
         };
 
         this.state.assets.forEach((a, idx) => {
           if (categories[a.cat]) categories[a.cat].items.push({ ...a, idx });
         });
 
-        container.innerHTML = Object.values(categories).map(cat => `
-          <div class="vault-card">
-            <h3>${cat.title}</h3>
-            <ul class="vault-list">
-              ${cat.items.length === 0 ? '<li style="color:var(--text-dim); font-size:0.8rem;">Пока нет ссылок</li>' : ''}
-              ${cat.items.map(i => `
-                <li class="vault-item">
-                  <a href="${i.url}" target="_blank">🔗 ${i.title}</a>
-                  <button class="btn-icon" onclick="CRM.deleteAsset(${i.idx})">✕</button>
-                </li>
-              `).join('')}
-            </ul>
+        grid.innerHTML = Object.values(categories).map(cat => `
+          <div class="hub-card">
+            <div>
+              <span class="card-icon">${cat.icon}</span>
+              <h3 class="card-title">${cat.title}</h3>
+              <ul style="list-style:none; padding:0; margin:12px 0 18px; display:flex; flex-direction:column; gap:8px;">
+                ${cat.items.length === 0 ? '<li style="color:var(--text-dim); font-size:0.8rem;">Нет ссылок</li>' : ''}
+                ${cat.items.map(item => `
+                  <li style="display:flex; justify-content:space-between; align-items:center; background:#121721; padding:7px 10px; border-radius:6px; border:1px solid var(--border-card); font-size:0.84rem;">
+                    <a href="${item.url}" target="_blank" style="color:var(--gold-light); text-decoration:none; font-weight:600;">🔗 ${item.title}</a>
+                    <button class="btn-icon" onclick="HUB.deleteAsset(${item.idx})">✕</button>
+                  </li>
+                `).join('')}
+              </ul>
+            </div>
+            <button class="btn-card" onclick="HUB.openAssetModal()">
+              <span>+ Загрузить новую ссылку</span>
+              <span>&nearr;</span>
+            </button>
           </div>
         `).join('');
       },
@@ -1935,8 +2012,8 @@
       saveAsset() {
         const title = document.getElementById('assetTitleInput').value.trim();
         const url = document.getElementById('assetUrlInput').value.trim();
-        const cat = document.getElementById('assetCategorySelect').value;
-        if (!title || !url) { alert('Заполните название и ссылку'); return; }
+        const cat = document.getElementById('assetCatSelect').value;
+        if (!title || !url) { alert('Заполните название и URL'); return; }
 
         this.state.assets.push({ title, url, cat });
         this.save();
@@ -1950,84 +2027,41 @@
       },
 
       /* ========================================================
-         FEED
+         BACKUP / RESTORE
          ======================================================== */
-      renderFeed() {
-        const container = document.getElementById('feedTimeline');
-        if (!container) return;
-        document.getElementById('totalFeedCount').innerText = this.state.feed.length;
-
-        container.innerHTML = this.state.feed.map(entry => `
-          <div class="feed-entry">
-            <div class="feed-header">
-              <span class="feed-author">
-                <span class="badge ${entry.author.includes('GTP') ? 'badge-rust' : 'badge-blue'}">${entry.author}</span>
-              </span>
-              <span class="feed-date">${entry.date}</span>
-            </div>
-            <div class="feed-body">${entry.text}</div>
-          </div>
-        `).join('');
-      },
-
-      addFeedEntry() {
-        const text = document.getElementById('feedText').value.trim();
-        if (!text) return;
-        const author = this.state.role === 'artist' ? 'Р. П. ГОСТ / Mad Nekit' : 'Продюсер (GTP)';
-        const date = new Date().toLocaleString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' });
-
-        this.state.feed.unshift({
-          id: 'f_' + Date.now(),
-          author, date, text
-        });
-        document.getElementById('feedText').value = '';
-        this.save();
-        this.renderFeed();
-      },
-
-      /* ========================================================
-         BACKUP & UTILS
-         ======================================================== */
-      exportData() {
+      exportBackup() {
         const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.state, null, 2));
-        const downloadAnchor = document.createElement('a');
-        downloadAnchor.setAttribute("href", dataStr);
-        downloadAnchor.setAttribute("download", `gtp-lds-hub-backup-${Date.now()}.json`);
-        document.body.appendChild(downloadAnchor);
-        downloadAnchor.click();
-        downloadAnchor.remove();
+        const a = document.createElement('a');
+        a.href = dataStr;
+        a.download = `gtp-lds-hub-backup-${Date.now()}.json`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
       },
 
-      importData(event) {
-        const file = event.target.files[0];
+      importBackup(ev) {
+        const file = ev.target.files[0];
         if (!file) return;
         const reader = new FileReader();
         reader.onload = (e) => {
           try {
             const data = JSON.parse(e.target.result);
-            if (data.releases && data.tasks) {
+            if (data.notes && data.tasks) {
               this.state = data;
               this.save();
               this.renderAll();
-              alert('Данные успешно загружены!');
-            } else {
-              alert('Неверный формат файла бэкапа');
+              alert('Все данные (заметки, задачи, релизы) успешно восстановлены!');
             }
           } catch(err) {
-            alert('Ошибка чтения файла JSON: ' + err.message);
+            alert('Ошибка загрузки JSON: ' + err.message);
           }
         };
         reader.readAsText(file);
-      },
-
-      copyHex(hex) {
-        navigator.clipboard.writeText(hex);
-        alert(`Цвет ${hex} скопирован в буфер обмена!`);
       }
     };
 
     window.addEventListener('DOMContentLoaded', () => {
-      CRM.init();
+      HUB.init();
     });
   </script>
 </body>
