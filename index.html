@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Team Partners × Р. П. ГОСТ / LDS Inc. (100PRO)</title>
+  <style>
+    :root {
+      --bg: #0c0d0e;
+      --card-bg: #16181b;
+      --card-border: #26292e;
+      --text: #e6ece8;
+      --text-muted: #8b949e;
+      --accent-steel: #7a8288;
+      --accent-rust: #d94823;
+      --accent-green: #2ea043;
+      --accent-blue: #58a6ff;
+      --concrete: #222428;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      padding: 0;
+    }
+    header {
+      background: linear-gradient(180deg, #181b20 0%, #0c0d0e 100%);
+      border-bottom: 1px solid var(--card-border);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .badge-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .badge-green { background: rgba(46, 160, 67, 0.2); color: #3fb950; border: 1px solid rgba(46, 160, 67, 0.4); }
+    .badge-rust { background: rgba(217, 72, 35, 0.2); color: #ff7b72; border: 1px solid rgba(217, 72, 35, 0.4); }
+    .badge-blue { background: rgba(88, 166, 255, 0.2); color: #58a6ff; border: 1px solid rgba(88, 166, 255, 0.4); }
+    .badge-steel { background: rgba(122, 130, 136, 0.2); color: #c9d1d9; border: 1px solid rgba(122, 130, 136, 0.4); }
+    
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+    .tagline {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 720px;
+      margin: 0 auto 1.5rem;
+    }
+    .main-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .nav-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .nav-btn:hover, .nav-btn.active {
+      border-color: var(--accent-rust);
+      background: #20242a;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .card h2 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #fff;
+    }
+    .card p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .status-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+    }
+    .status-table th, .status-table td {
+      padding: 0.75rem 0.5rem;
+      text-align: left;
+      border-bottom: 1px solid var(--card-border);
+      font-size: 0.88rem;
+    }
+    .status-table th {
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+    }
+    .status-pill {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .status-done { background: rgba(46, 160, 67, 0.2); color: #3fb950; }
+    .status-in-progress { background: rgba(210, 153, 34, 0.2); color: #d29922; }
+    .status-pending { background: rgba(110, 118, 129, 0.2); color: #8b949e; }
+
+    .checklist {
+      list-style: none;
+    }
+    .checklist li {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #1f2227;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.92rem;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon {
+      font-weight: bold;
+      margin-top: 0.1rem;
+    }
+    .check-done { color: #3fb950; }
+    .check-wait { color: #d29922; }
+
+    .quote-box {
+      border-left: 3px solid var(--accent-rust);
+      background: #131518;
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: #c9d1d9;
+    }
+
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 3rem;
+    }
+    footer a { color: var(--accent-blue); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge-container">
+      <span class="badge badge-green">● Live Hub Active</span>
+      <span class="badge badge-rust">100PRO Records</span>
+      <a href="https://t.me/ghostghettochild" target="_blank" style="text-decoration:none;">
+        <span class="badge badge-blue">Telegram: @ghostghettochild</span>
+      </a>
+      <span class="badge badge-steel">LDS Inc. Syndicate</span>
+    </div>
+    <h1>Global Team Partners × LDS Inc.</h1>
+    <p class="tagline">Цифровой штаб развития и глобального продвижения «Р. П. ГОСТ / La Dagon Sector Inc.» (Mad Nekit, LDS Squad). Прозрачный роадмап, задачи и метрики.</p>
+    
+    <div class="main-nav">
+      <a href="docs/ACTION_PLAN.md" class="nav-btn">📋 План действий</a>
+      <a href="docs/WIN_WIN.md" class="nav-btn">🤝 Взаимная выгода</a>
+      <a href="docs/ROADMAP.md" class="nav-btn">🗺️ Календарь и задачи</a>
+      <a href="docs/PROGRESS_LOG.md" class="nav-btn">📝 Журнал обновлений</a>
+      <a href="docs/AI_STACK.md" class="nav-btn">🤖 AI-инструменты</a>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <div class="quote-box">
+      «Так закалялась сталь» — это не просто название трека или клипа. Это философия монолита: честный, закаленный улицами андеграунд восточноевропейской школы в альянсе с передовыми технологиями и глобальной дистрибуцией. <b>Альбом «4 LIFE» (осень) • Сольник Mad Nekit (начало года).</b>
+    </div>
+
+    <div class="grid-2">
+      <!-- Card 1: Key Focus & Roadmap -->
+      <div class="card">
+        <h2>⚡ Текущий фокус и релизы</h2>
+        <table class="status-table">
+          <thead>
+            <tr>
+              <th>Событие</th>
+              <th>Сроки</th>
+              <th>Статус</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Альбом «4 LIFE»</b> (100PRO)</td>
+              <td>Осень</td>
+              <td><span class="status-pill status-in-progress">В работе</span></td>
+            </tr>
+            <tr>
+              <td><b>Клип «Так закалялась сталь»</b></td>
+              <td>Осень</td>
+              <td><span class="status-pill status-in-progress">AI-генерация</span></td>
+            </tr>
+            <tr>
+              <td><b>Live: Tip Top Barbershop</b></td>
+              <td>Осень/Зима</td>
+              <td><span class="status-pill status-pending">Подготовка</span></td>
+            </tr>
+            <tr>
+              <td><b>Эфиры VTRNK Radio</b></td>
+              <td>Регулярно</td>
+              <td><span class="status-pill status-done">Активно</span></td>
+            </tr>
+            <tr>
+              <td><b>Сольный альбом Mad Nekit</b></td>
+              <td>Начало года</td>
+              <td><span class="status-pill status-pending">В плане</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Card 2: What We Do (GTP for Artist) -->
+      <div class="card">
+        <h2>🚀 Что мы делаем для артиста</h2>
+        <ul class="checklist">
+          <li>
+            <span class="check-icon check-done">✓</span>
+            <div><b>Стем-мастеринг и аудио-тюнинг:</b> Подгонка звука под мировые стриминговые стандарты Spotify (-14 LUFS) и Apple Music.</div>
+          </li>
+          <li>
+            <span class="check-icon check-done">✓</span>
+            <div><b>Spotify Canvas:</b> Генерация стильных зацикленных видео-лупов для всех треков альбома.</div>
+          </li>
+          <li>
+            <span class="check-icon check-wait">◷</span>
+            <div><b>ИИ-видеоряд клипа «Так закалялась сталь»:</b> Кинематографичные индустриальные мизансцены и 4K-апскейл.</div>
+          </li>
+          <li>
+            <span class="check-icon check-wait">◷</span>
+            <div><b>Фабрика вертикального контента:</b> Авто-нарезка рилс/шортс из эфиров VTRNK и сессий в Tip Top Barbershop.</div>
+          </li>
+          <li>
+            <span class="check-icon check-wait">◷</span>
+            <div><b>Глобальный питчинг и сабы:</b> Плейлисты, Genius-разборы и синхронизация в боевой спорт и кино.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <!-- Card 3: Win-Win Framework -->
+      <div class="card">
+        <h2>🤝 Взаимная выгода (Win-Win)</h2>
+        <p><b>Для Р. П. ГОСТа и Mad Nekit:</b></p>
+        <p style="font-size:0.9rem; color:#c9d1d9;">Полное освобождение от медиа- и монтажной рутины, мировой уровень видео и звука без многомиллионных затрат, выход на глобальный рынок при сохранении 100% авторских прав и независимости.</p>
+        <p><b>Для Global Team Partners:</b></p>
+        <p style="font-size:0.9rem; color:#c9d1d9;">Флагманский международный кейс, прозрачная модель Rev-Share (доля со стриминга, мерча и синхронизаций), партнерская синергия с легендарным лейблом 100PRO.</p>
+      </div>
+
+      <!-- Card 4: Navigation & Updates -->
+      <div class="card">
+        <h2>📱 Управление хабом</h2>
+        <p>Хаб открыт для команды и обновляется в реальном времени. Каждая выполненная задача и загруженный промо-материал фиксируются в журнале.</p>
+        <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:1rem;">
+          <a href="docs/PROGRESS_LOG.md" style="color:var(--accent-rust); text-decoration:none; font-weight:600;">→ Открыть Журнал обновлений (Progress Log)</a>
+          <a href="docs/ROADMAP.md" style="color:var(--accent-blue); text-decoration:none; font-weight:600;">→ Посмотреть детальный календарный чек-лист</a>
+          <a href="https://t.me/ghostghettochild" target="_blank" style="color:#3fb950; text-decoration:none; font-weight:600;">→ Перейти в Telegram-хаб @ghostghettochild</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>Global Team Partners × La Dagon Sector Inc. • Под эгидой лейбла 100PRO • 2026</p>
+    <p style="margin-top:0.5rem;">Репозиторий проекта: <a href="https://github.com/unityspirit/globalteampartners" target="_blank">github.com/unityspirit/globalteampartners</a></p>
+  </footer>
+
+</body>
+</html>
