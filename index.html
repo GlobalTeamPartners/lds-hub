@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Global Team Partners × LDS Inc. | Workspace & CRM Hub</title>
-  <meta name="description" content="Интерактивный рабочий хаб и CRM для совместного ведения релизов, задач и продвижения Р. П. ГОСТ / La Dagon Sector Inc. (100PRO)">
+  <title>Global Team Partners × LDS Inc. | Presentation Hub & Workspace CRM</title>
+  <meta name="description" content="Интерактивный презентационный хаб и Workspace CRM для «Р. П. ГОСТ / La Dagon Sector Inc.» (100PRO Records)">
   
   <style>
     :root {
-      --bg: #090a0b;
+      --bg: #08090a;
       --card-bg: #121417;
-      --card-hover: #1a1c21;
-      --border: #22262c;
+      --card-hover: #191c21;
+      --border: #22262d;
       --border-accent: #333a44;
       --text: #e6ece8;
       --text-muted: #8b949e;
       --text-dim: #606770;
       
       --accent-rust: #d94823;
-      --accent-rust-glow: rgba(217, 72, 35, 0.25);
+      --accent-rust-glow: rgba(217, 72, 35, 0.35);
       --accent-steel: #7a8288;
       --accent-green: #2ea043;
       --accent-green-bg: rgba(46, 160, 67, 0.15);
@@ -29,8 +29,8 @@
       --accent-purple: #bc8cff;
       --accent-purple-bg: rgba(188, 140, 255, 0.15);
 
-      --radius: 10px;
-      --shadow: 0 8px 24px rgba(0,0,0,0.5);
+      --radius: 12px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.6);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -46,9 +46,9 @@
 
     /* TOP HEADER */
     header {
-      background: linear-gradient(180deg, #16191e 0%, #0d0f12 100%);
+      background: linear-gradient(180deg, #15181e 0%, #0a0c0e 100%);
       border-bottom: 1px solid var(--border);
-      padding: 1.25rem 1.5rem;
+      padding: 1.1rem 1.5rem;
       position: sticky;
       top: 0;
       z-index: 100;
@@ -66,7 +66,7 @@
     .brand-block {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.9rem;
     }
     .brand-logo {
       width: 44px;
@@ -77,10 +77,10 @@
       align-items: center;
       justify-content: center;
       font-weight: 900;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       color: #fff;
-      border: 1px solid rgba(255,255,255,0.2);
-      box-shadow: 0 0 15px var(--accent-rust-glow);
+      border: 1px solid rgba(255,255,255,0.25);
+      box-shadow: 0 0 16px var(--accent-rust-glow);
     }
     .brand-info h1 {
       font-size: 1.15rem;
@@ -92,7 +92,7 @@
       gap: 0.5rem;
     }
     .brand-info p {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
     }
     .badge {
@@ -112,16 +112,16 @@
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.6rem;
       flex-wrap: wrap;
     }
     .role-selector {
       background: var(--card-bg);
       border: 1px solid var(--border);
       color: var(--text);
-      padding: 0.45rem 0.8rem;
+      padding: 0.4rem 0.75rem;
       border-radius: 6px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 600;
       display: flex;
       align-items: center;
@@ -132,7 +132,7 @@
       border: none;
       color: var(--accent-blue);
       font-weight: 700;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       outline: none;
       cursor: pointer;
     }
@@ -141,7 +141,7 @@
       background: var(--card-bg);
       border: 1px solid var(--border);
       color: var(--text);
-      padding: 0.45rem 0.9rem;
+      padding: 0.45rem 0.85rem;
       border-radius: 6px;
       font-size: 0.82rem;
       font-weight: 600;
@@ -164,19 +164,18 @@
     }
     .btn-primary:hover {
       background: #e6522c;
-      box-shadow: 0 0 12px var(--accent-rust-glow);
-    }
-    .btn-success {
-      background: var(--accent-green);
-      border-color: #248135;
-      color: #fff;
+      box-shadow: 0 0 14px var(--accent-rust-glow);
     }
 
     /* NAVIGATION TABS */
     .nav-bar {
-      background: #0f1114;
+      background: #0d0f12;
       border-bottom: 1px solid var(--border);
       padding: 0.25rem 1.5rem;
+      position: sticky;
+      top: 67px;
+      z-index: 90;
+      backdrop-filter: blur(8px);
     }
     .nav-tabs {
       max-width: 1400px;
@@ -208,6 +207,12 @@
     .tab-btn.active {
       color: #fff;
       border-bottom-color: var(--accent-rust);
+      font-weight: 700;
+    }
+    .tab-btn-highlight {
+      color: #ff977d;
+      background: rgba(217, 72, 35, 0.1);
+      border-radius: 6px 6px 0 0;
     }
     .tab-badge {
       font-size: 0.7rem;
@@ -226,10 +231,232 @@
       padding: 0 1.5rem;
     }
     .tab-content { display: none; }
-    .tab-content.active { display: block; animation: fadeIn 0.2s ease-in-out; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+    .tab-content.active { display: block; animation: fadeIn 0.25s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* DASHBOARD / PIPELINE VIEW */
+    /* ========================================================
+       PRESENTATION DECK (PITCH SHOWCASE)
+       ======================================================== */
+    .deck-container {
+      max-width: 1100px;
+      margin: 0 auto 2.5rem;
+      background: #0f1115;
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+      overflow: hidden;
+      position: relative;
+    }
+    .deck-topbar {
+      background: #14171d;
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .deck-slide-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .deck-controls-top {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .slide-wrapper {
+      position: relative;
+      min-height: 540px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+    .slide-img-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: brightness(0.65) contrast(1.1);
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .deck-container:hover .slide-img-bg {
+      transform: scale(1.02);
+    }
+    .slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(8,9,10,0.2) 0%, rgba(8,9,10,0.85) 60%, rgba(8,9,10,0.98) 100%);
+    }
+
+    .slide-content {
+      position: relative;
+      z-index: 10;
+      padding: 2.5rem 2rem 1.5rem;
+      max-width: 900px;
+    }
+    .slide-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #ff7b72;
+      margin-bottom: 0.5rem;
+    }
+    .slide-heading {
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
+    .slide-subtitle {
+      font-size: 1.05rem;
+      color: #c9d1d9;
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+    .slide-points-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+    .slide-point-card {
+      background: rgba(18, 20, 23, 0.85);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      backdrop-filter: blur(8px);
+    }
+    .slide-point-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .slide-point-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    /* DECK CONTROLLER BAR */
+    .deck-bottombar {
+      background: #101317;
+      border-top: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .deck-pagination-dots {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .dot-btn {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: #2a2e36;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .dot-btn.active {
+      width: 32px;
+      background: var(--accent-rust);
+      box-shadow: 0 0 10px var(--accent-rust-glow);
+    }
+    .deck-nav-btns {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    /* GALLERY OF PRESENTATION CARDS */
+    .deck-gallery-header {
+      text-align: center;
+      margin: 2.5rem 0 1.5rem;
+    }
+    .deck-gallery-header h2 { font-size: 1.5rem; font-weight: 800; text-transform: uppercase; color: #fff; }
+    .deck-gallery-header p { color: var(--text-muted); font-size: 0.95rem; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+    }
+    .gallery-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+    .gallery-card:hover {
+      border-color: var(--accent-rust);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .gallery-card-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: brightness(0.85);
+      transition: filter 0.2s;
+    }
+    .gallery-card:hover .gallery-card-img {
+      filter: brightness(1);
+    }
+    .gallery-card-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      flex: 1;
+    }
+    .gallery-card-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent-rust);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .gallery-card-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .gallery-card-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* KPI GRID & DASHBOARD */
     .kpi-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -246,7 +473,7 @@
       gap: 0.35rem;
     }
     .kpi-label { font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; letter-spacing: 0.05em; }
-    .kpi-value { font-size: 1.7rem; font-weight: 800; color: #fff; }
+    .kpi-value { font-size: 1.6rem; font-weight: 800; color: #fff; }
     .kpi-sub { font-size: 0.8rem; color: var(--accent-green); }
 
     .banner-quote {
@@ -264,10 +491,10 @@
     .banner-quote-text h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.2rem; }
     .banner-quote-text p { font-size: 0.88rem; color: var(--text-muted); }
 
-    /* RELEASE CARDS */
+    /* RELEASES GRID WITH VISUAL HEADERS */
     .releases-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 1.25rem;
       margin-bottom: 2rem;
     }
@@ -275,15 +502,27 @@
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 1.25rem;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
     .release-card:hover {
       border-color: var(--border-accent);
       box-shadow: var(--shadow);
+    }
+    .release-thumbnail {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      filter: brightness(0.75);
+    }
+    .release-card-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      flex: 1;
     }
     .release-header {
       display: flex;
@@ -291,14 +530,14 @@
       align-items: flex-start;
       gap: 0.5rem;
     }
-    .release-title { font-size: 1.1rem; font-weight: 800; color: #fff; }
-    .release-tagline { font-size: 0.8rem; color: var(--text-muted); }
+    .release-title { font-size: 1.05rem; font-weight: 800; color: #fff; }
+    .release-tagline { font-size: 0.78rem; color: var(--text-muted); }
     .progress-bar-bg {
       background: #1d2127;
-      height: 8px;
+      height: 7px;
       border-radius: 999px;
       overflow: hidden;
-      margin: 0.4rem 0;
+      margin: 0.3rem 0;
     }
     .progress-bar-fill {
       background: linear-gradient(90deg, var(--accent-rust), #f36c44);
@@ -310,11 +549,11 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
-      margin-top: 0.3rem;
+      gap: 0.35rem;
+      margin-top: 0.2rem;
     }
     .release-checklist li {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -425,34 +664,17 @@
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
-    .task-tags {
-      display: flex;
-      gap: 0.35rem;
-      flex-wrap: wrap;
-    }
-    .tag {
-      font-size: 0.68rem;
-      font-weight: 700;
-      padding: 0.1rem 0.45rem;
-      border-radius: 4px;
-      text-transform: uppercase;
-    }
+    .task-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+    .tag { font-size: 0.68rem; font-weight: 700; padding: 0.1rem 0.45rem; border-radius: 4px; text-transform: uppercase; }
     .tag-audio { background: var(--accent-purple-bg); color: var(--accent-purple); }
     .tag-video { background: var(--accent-blue-bg); color: var(--accent-blue); }
     .tag-smm { background: var(--accent-green-bg); color: #3fb950; }
     .tag-release { background: var(--accent-rust-glow); color: #ff7b72; }
     .tag-live { background: var(--accent-yellow-bg); color: #d29922; }
+    .tag-sync { background: rgba(122, 130, 136, 0.2); color: #c9d1d9; }
 
-    .task-title {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: #fff;
-    }
-    .task-desc {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      line-height: 1.4;
-    }
+    .task-title { font-size: 0.88rem; font-weight: 700; color: #fff; }
+    .task-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
     .task-footer {
       display: flex;
       justify-content: space-between;
@@ -461,17 +683,8 @@
       font-size: 0.72rem;
       color: var(--text-dim);
     }
-    .task-assignee {
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-      color: var(--text-muted);
-      font-weight: 600;
-    }
-    .task-actions {
-      display: flex;
-      gap: 0.3rem;
-    }
+    .task-assignee { display: flex; align-items: center; gap: 0.3rem; color: var(--text-muted); font-weight: 600; }
+    .task-actions { display: flex; gap: 0.3rem; }
     .btn-icon {
       background: transparent;
       border: none;
@@ -483,31 +696,10 @@
     .btn-icon:hover { color: #fff; background: rgba(255,255,255,0.1); }
 
     /* ASSETS VAULT */
-    .vault-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.25rem;
-    }
-    .vault-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.25rem;
-    }
-    .vault-card h3 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      margin-bottom: 0.8rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .vault-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
+    .vault-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem; }
+    .vault-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+    .vault-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+    .vault-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
     .vault-item {
       display: flex;
       justify-content: space-between;
@@ -518,21 +710,11 @@
       border-radius: 6px;
       font-size: 0.82rem;
     }
-    .vault-item a {
-      color: var(--accent-blue);
-      text-decoration: none;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
+    .vault-item a { color: var(--accent-blue); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.4rem; }
     .vault-item a:hover { text-decoration: underline; }
 
-    /* FEED / LOG */
-    .feed-container {
-      max-width: 900px;
-      margin: 0 auto;
-    }
+    /* FEED */
+    .feed-container { max-width: 900px; margin: 0 auto; }
     .feed-input-box {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -556,16 +738,8 @@
       outline: none;
     }
     .feed-input-box textarea:focus { border-color: var(--accent-rust); }
-    .feed-input-actions {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .feed-timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+    .feed-input-actions { display: flex; justify-content: space-between; align-items: center; }
+    .feed-timeline { display: flex; flex-direction: column; gap: 1rem; }
     .feed-entry {
       background: var(--card-bg);
       border: 1px solid var(--border);
@@ -575,23 +749,18 @@
       flex-direction: column;
       gap: 0.4rem;
     }
-    .feed-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.75rem;
-    }
+    .feed-header { display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; }
     .feed-author { font-weight: 700; color: #fff; display: flex; align-items: center; gap: 0.4rem; }
     .feed-date { color: var(--text-dim); }
     .feed-body { font-size: 0.88rem; line-height: 1.5; color: var(--text); }
 
-    /* MODAL */
+    /* MODALS */
     .modal-overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.75);
-      backdrop-filter: blur(4px);
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(5px);
       z-index: 1000;
       align-items: center;
       justify-content: center;
@@ -611,17 +780,8 @@
       box-shadow: 0 16px 40px rgba(0,0,0,0.8);
     }
     .modal h2 { font-size: 1.15rem; font-weight: 800; color: #fff; }
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-    .form-group label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
+    .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+    .form-group label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); }
     .form-input, .form-select, .form-textarea {
       background: #0d0f12;
       border: 1px solid var(--border);
@@ -633,12 +793,7 @@
       outline: none;
     }
     .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--accent-rust); }
-    .modal-buttons {
-      display: flex;
-      justify-content: flex-end;
-      gap: 0.6rem;
-      margin-top: 0.5rem;
-    }
+    .modal-buttons { display: flex; justify-content: flex-end; gap: 0.6rem; margin-top: 0.5rem; }
 
     footer {
       border-top: 1px solid var(--border);
@@ -695,7 +850,10 @@
   <!-- NAVIGATION TABS -->
   <div class="nav-bar">
     <div class="nav-tabs">
-      <button class="tab-btn active" onclick="CRM.switchTab('dashboard')">
+      <button class="tab-btn tab-btn-highlight active" onclick="CRM.switchTab('presentation')">
+        🎬 Презентация (Pitch Deck)
+      </button>
+      <button class="tab-btn" onclick="CRM.switchTab('dashboard')">
         📊 Воронка и Релизы
       </button>
       <button class="tab-btn" onclick="CRM.switchTab('kanban')">
@@ -711,7 +869,7 @@
         🤝 Win-Win & Финансы
       </button>
       <button class="tab-btn" onclick="CRM.switchTab('brand')">
-        🎨 Брендбук и Пресс-кит
+        🎨 Брендбук
       </button>
     </div>
   </div>
@@ -719,8 +877,113 @@
   <!-- MAIN CONTAINER -->
   <main>
 
+    <!-- 0. PRESENTATION DECK TAB (NEW!) -->
+    <div id="tab-presentation" class="tab-content active">
+      
+      <!-- Interactive Cinema Slide Viewer -->
+      <div class="deck-container" id="deckContainer">
+        <div class="deck-topbar">
+          <div class="deck-slide-title" id="deckSlideIndicator">Слайд 01 / 07 • Манифест & ДНК</div>
+          <div class="deck-controls-top">
+            <span class="badge badge-rust">100PRO Records</span>
+            <button class="btn" onclick="CRM.toggleFullscreenDeck()" title="Во весь экран">⛶ Полный экран</button>
+          </div>
+        </div>
+
+        <div class="slide-wrapper" id="slideWrapper">
+          <img src="assets/images/hero_steel_hardcore.jpg" alt="Slide Visual" class="slide-img-bg" id="slideImg">
+          <div class="slide-overlay"></div>
+          
+          <div class="slide-content">
+            <div class="slide-eyebrow" id="slideEyebrow">⚡ ФИЛОСОФИЯ И ДНК СИНДИКАТА</div>
+            <h2 class="slide-heading" id="slideHeading">«Так закалялась сталь»</h2>
+            <p class="slide-subtitle" id="slideSubtitle">
+              Не соло-артист, а самобытный хип-хоп синдикат. Плотный классический бум-бэп, уличный реализм Донбасса и Горловки, школа культового лейбла 100PRO.
+            </p>
+            <div class="slide-points-grid" id="slidePointsGrid">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+
+        <div class="deck-bottombar">
+          <div class="deck-pagination-dots" id="deckDots">
+            <!-- Rendered via JS -->
+          </div>
+
+          <div class="deck-nav-btns">
+            <button class="btn" onclick="CRM.prevSlide()">◀ Назад</button>
+            <button class="btn btn-primary" onclick="CRM.nextSlide()">Вперед ▶</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Presentation Visual Gallery & Highlights -->
+      <div class="deck-gallery-header">
+        <h2>Визуальная архитектура проекта: 5 столпов</h2>
+        <p>Каждое изображение отражает аутентичную эстетику релизов, лайвов и медиа-форматов коллектива</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-card" onclick="CRM.goToSlide(0)">
+          <img src="assets/images/hero_steel_hardcore.jpg" class="gallery-card-img" alt="Так закалялась сталь">
+          <div class="gallery-card-body">
+            <span class="gallery-card-badge">Слайд 01 • Манифест</span>
+            <div class="gallery-card-title">«Так закалялась сталь»</div>
+            <div class="gallery-card-desc">Индустриальный брутализм, плавильные цеха, суровый уличный монолит и кодекс «4 LIFE».</div>
+          </div>
+        </div>
+
+        <div class="gallery-card" onclick="CRM.goToSlide(1)">
+          <img src="assets/images/album_4life_vinyl.jpg" class="gallery-card-img" alt="Альбом 4 LIFE">
+          <div class="gallery-card-body">
+            <span class="gallery-card-badge">Слайд 02 • Релиз осени</span>
+            <div class="gallery-card-title">Командный альбом «4 LIFE»</div>
+            <div class="gallery-card-desc">Винил, MPC сэмплеры, кассеты, лейбл 100PRO, мировой мастеринг под Spotify (-14 LUFS).</div>
+          </div>
+        </div>
+
+        <div class="gallery-card" onclick="CRM.goToSlide(2)">
+          <img src="assets/images/hero_steel_hardcore.jpg" class="gallery-card-img" alt="Клип Так закалялась сталь">
+          <div class="gallery-card-body">
+            <span class="gallery-card-badge">Слайд 03 • Видео-продакшн</span>
+            <div class="gallery-card-title">Официальный 4K Клип</div>
+            <div class="gallery-card-desc">Синтез реальных съемок с ИИ-генерациями (Kling/Runway), Topaz Video 4K, сабы EN/ES и Genius.</div>
+          </div>
+        </div>
+
+        <div class="gallery-card" onclick="CRM.goToSlide(3)">
+          <img src="assets/images/tiptop_barbershop_live.jpg" class="gallery-card-img" alt="Tip Top Barbershop">
+          <div class="gallery-card-body">
+            <span class="gallery-card-badge">Слайд 04 • Оффлайн Live</span>
+            <div class="gallery-card-title">Tip Top Barbershop Live</div>
+            <div class="gallery-card-desc">Хром бритв, кожаные кресла, дым, запись чистого звука Shure, серия «Tip Top Sessions».</div>
+          </div>
+        </div>
+
+        <div class="gallery-card" onclick="CRM.goToSlide(4)">
+          <img src="assets/images/vtrnk_radio_studio.jpg" class="gallery-card-img" alt="VTRNK Radio">
+          <div class="gallery-card-body">
+            <span class="gallery-card-badge">Слайд 05 • Медиа-фабрика</span>
+            <div class="gallery-card-title">Эфиры на VTRNK Radio</div>
+            <div class="gallery-card-desc">Студийный полумрак, аналоговые стрелки VU, ежедневные шортс и AI-дубляж ElevenLabs на английский.</div>
+          </div>
+        </div>
+
+        <div class="gallery-card" onclick="CRM.goToSlide(5)">
+          <img src="assets/images/mad_nekit_producer.jpg" class="gallery-card-img" alt="Mad Nekit">
+          <div class="gallery-card-body">
+            <span class="gallery-card-badge">Слайд 06 • Сольный альбом</span>
+            <div class="gallery-card-title">Сольник Mad Nekit</div>
+            <div class="gallery-card-desc">Начало следующего года. Лаборатория битмейкинга, сэмпл-паки, расширение вселенной LDS.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
     <!-- 1. DASHBOARD & RELEASES VIEW -->
-    <div id="tab-dashboard" class="tab-content active">
+    <div id="tab-dashboard" class="tab-content">
       <div class="kpi-grid">
         <div class="kpi-card">
           <div class="kpi-label">Текущий флагман</div>
@@ -755,9 +1018,9 @@
         </div>
       </div>
 
-      <h2 style="font-size:1.2rem; font-weight:800; margin-bottom:1rem; color:#fff;">⚡ Воронка ключевых релизов и вех</h2>
+      <h2 style="font-size:1.2rem; font-weight:800; margin-bottom:1rem; color:#fff;">⚡ Воронка ключевых релизов с визуальным контролем</h2>
       <div class="releases-grid" id="releasesContainer">
-        <!-- Rendered via JS -->
+        <!-- Rendered via JS with image thumbnails -->
       </div>
     </div>
 
@@ -861,24 +1124,28 @@
         </div>
 
         <div class="releases-grid">
-          <div class="release-card">
-            <h3 style="color:#ff7b72; font-size:1rem;">Что получает Артист (LDS Inc.)</h3>
-            <ul style="font-size:0.88rem; color:var(--text-muted); display:flex; flex-direction:column; gap:0.5rem; margin-top:0.5rem; padding-left:1.2rem;">
-              <li>0% траты времени на видеомонтаж, рилсы, SMM-рутину и письма.</li>
-              <li>Голливудский уровень ИИ-графики и 4K апскейл без миллионных затрат.</li>
-              <li>Калибровка звука под мировые стриминговые стандарты Spotify (-14 LUFS).</li>
-              <li>Глобальный выход на англоязычных кураторов, Genius и Bandcamp.</li>
-            </ul>
+          <div class="release-card" style="background:#15181e;">
+            <div style="padding:1.25rem;">
+              <h3 style="color:#ff7b72; font-size:1rem; margin-bottom:0.5rem;">Что получает Артист (LDS Inc.)</h3>
+              <ul style="font-size:0.88rem; color:var(--text-muted); display:flex; flex-direction:column; gap:0.5rem; padding-left:1.2rem;">
+                <li>0% траты времени на видеомонтаж, рилсы, SMM-рутину и письма.</li>
+                <li>Голливудский уровень ИИ-графики и 4K апскейл без миллионных затрат.</li>
+                <li>Калибровка звука под мировые стриминговые стандарты Spotify (-14 LUFS).</li>
+                <li>Глобальный выход на англоязычных кураторов, Genius и Bandcamp.</li>
+              </ul>
+            </div>
           </div>
 
-          <div class="release-card">
-            <h3 style="color:var(--accent-blue); font-size:1rem;">Что получаем Мы (Global Team Partners)</h3>
-            <ul style="font-size:0.88rem; color:var(--text-muted); display:flex; flex-direction:column; gap:0.5rem; margin-top:0.5rem; padding-left:1.2rem;">
-              <li>Флагманский международный кейс применения ИИ в независимой индустрии.</li>
-              <li>Справедливый Rev-Share процент от прироста стриминга и монетизации YouTube.</li>
-              <li>Доля от контрактов на синхронизацию (игры, спорт, сериалы).</li>
-              <li>Прямое институциональное партнерство с легендарным лейблом 100PRO.</li>
-            </ul>
+          <div class="release-card" style="background:#15181e;">
+            <div style="padding:1.25rem;">
+              <h3 style="color:var(--accent-blue); font-size:1rem; margin-bottom:0.5rem;">Что получаем Мы (Global Team Partners)</h3>
+              <ul style="font-size:0.88rem; color:var(--text-muted); display:flex; flex-direction:column; gap:0.5rem; padding-left:1.2rem;">
+                <li>Флагманский международный кейс применения ИИ в независимой индустрии.</li>
+                <li>Справедливый Rev-Share процент от прироста стриминга и монетизации YouTube.</li>
+                <li>Доля от контрактов на синхронизацию (игры, спорт, сериалы).</li>
+                <li>Прямое институциональное партнерство с легендарным лейблом 100PRO.</li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -1066,13 +1333,101 @@
     </p>
   </footer>
 
-  <!-- CORE CRM JAVASCRIPT ENGINE -->
+  <!-- CORE CRM & PRESENTATION JAVASCRIPT ENGINE -->
   <script>
+    const PRESENTATION_SLIDES = [
+      {
+        eyebrow: '⚡ 01 / ДНК & МАНИФЕСТ СИНДИКАТА',
+        title: '«Так закалялась сталь»',
+        subtitle: '«Р. П. ГОСТ / La Dagon Sector Inc.» — это не соло-артист, а монолитный хип-хоп синдикат. Плотный бум-бэп старой школы, шахтерская романтика Горловки и Донбасса, андеграунд Москвы и Петербурга.',
+        img: 'assets/images/hero_steel_hardcore.jpg',
+        points: [
+          { title: 'Братство LDS Inc.', desc: 'Р. П. ГОСТ (SpiderGhost), Mad Nekit, битмейкеры и уличные художники.' },
+          { title: 'Школа 100PRO Records', desc: 'Преемственность легендарного лейбла Влада Валова (Bad Balance legacy).' },
+          { title: 'Хаб @ghostghettochild', desc: 'Единый центр связи с фан-базой, закрытыми дропами и новостями.' },
+          { title: 'Манифест «4 LIFE»', desc: 'Хип-хоп на всю жизнь, без пластикового глянца и минутных трендов.' }
+        ]
+      },
+      {
+        eyebrow: '💿 02 / ГЛАВНЫЙ РЕЛИЗ ОСЕНИ',
+        title: 'Командный альбом «4 LIFE»',
+        subtitle: 'Флагманский лонгплей коллектива, выпускаемый под эгидой культового лейбла 100PRO. Выход на мировые стриминги со звуком высшей пробы.',
+        img: 'assets/images/album_4life_vinyl.jpg',
+        points: [
+          { title: 'Мастеринг -14 LUFS', desc: 'Точная калибровка под мировые стандарты Spotify и Apple Music Lossless.' },
+          { title: 'Пакет Spotify Canvas', desc: '10 уникальных зацикленных видео-обложек 9:16 в кибер-брутализме.' },
+          { title: 'Editorial Питчинг', desc: 'Подача в кураторские плейлисты Underground Rap, Beast Mode, Slavic Beats.' },
+          { title: 'Винил & Кассеты', desc: 'Лимитированные физические тиражи на Bandcamp для диггеров по всему миру.' }
+        ]
+      },
+      {
+        eyebrow: '🎬 03 / ВИДЕО-МАНИФЕСТ',
+        title: 'Клип «Так закалялась сталь»',
+        subtitle: 'Официальный клип в 4K. Сочетание документальных уличных съемок и кинематографичных ИИ-мизансцен индустриальных заводов.',
+        img: 'assets/images/hero_steel_hardcore.jpg',
+        points: [
+          { title: 'ИИ-визуализация цехов', desc: 'Генерация раскаленного металла и доменных печей (Runway Gen-3 / Kling).' },
+          { title: 'Topaz Video 4K', desc: 'Нейросетевой апскейл и цветокоррекция до голливудской четкости.' },
+          { title: 'Сабы EN / ES / DE', desc: 'Выход на мировой YouTube с профессиональным таймингом субтитров.' },
+          { title: 'Genius Breakdown', desc: 'Глубокая расшифровка панчей, уличного сленга и контекста Горловки.' }
+        ]
+      },
+      {
+        eyebrow: '💈 04 / ОФФЛАЙН-АКТИВАЦИЯ',
+        title: 'Live в Tip Top Barbershop',
+        subtitle: 'Атмосферный камерный лайв-сет «для своих». Кожа винтажных кресел, хром бритв, дым и микрофоны Shure SM7B.',
+        img: 'assets/images/tiptop_barbershop_live.jpg',
+        points: [
+          { title: 'Серия «Tip Top Sessions»', desc: '3–4 полноценных live-клипа для YouTube и VK Видео.' },
+          { title: 'Чистый мультитрек', desc: 'Запись прямого аудио-сигнала без помех.' },
+          { title: 'RX Voice De-Noise', desc: 'ИИ-очистка вокала от комнатного шума для кристального звука.' },
+          { title: '15 Виральных сниппетов', desc: 'Нарезка самых плотных рифм для шортс и рилс.' }
+        ]
+      },
+      {
+        eyebrow: '🎙️ 05 / МЕДИА-ФАБРИКА',
+        title: 'Эфиры на VTRNK Radio',
+        subtitle: 'Регулярная фабрика контента на волнах андеграундного радиошоу VTRNK. Разборы треков, фристайлы и откровенные диалоги.',
+        img: 'assets/images/vtrnk_radio_studio.jpg',
+        points: [
+          { title: 'Авто-нарезка Opus Clip', desc: 'Ежедневная нарезка 1–2 виральных шортс с яркими субтитрами.' },
+          { title: 'Охват 500,000+ органики', desc: 'Посевы в Telegram, YouTube Shorts, VK Клипы и TikTok.' },
+          { title: 'AI Voice Dubbing', desc: 'ElevenLabs мультиязычный перевод лучших фрагментов на английский.' },
+          { title: 'Экспорт на Reddit & Блоги', desc: 'Питчинг зарубежным фанатам восточноевропейского хард-рэпа.' }
+        ]
+      },
+      {
+        eyebrow: '🔥 06 / СТРАТЕГИЧЕСКИЙ ЭШЕЛОН',
+        title: 'Сольный альбом Mad Nekit',
+        subtitle: 'Полноформатный сольник в начале следующего года. Презентация авторского битмейкинга и сольного МС-почерка.',
+        img: 'assets/images/mad_nekit_producer.jpg',
+        points: [
+          { title: 'Лаборатория бум-бэпа', desc: 'Плотный сэмплинг с винила, раритетные сбивки на Akai MPC.' },
+          { title: 'Тизерный сэмпл-пак', desc: 'Дроп авторских лупов и звуков для фанатов и продюсеров.' },
+          { title: 'Прогрев через «4 LIFE»', desc: 'Конвертация уже сформированной базы слушателей командного альбома.' },
+          { title: 'Поддержка 100PRO', desc: 'Дистрибуция через проверенные институциональные каналы.' }
+        ]
+      },
+      {
+        eyebrow: '🤝 07 / ПАРТНЕРСТВО И WIN-WIN',
+        title: 'Global Team Partners × LDS',
+        subtitle: 'Технологический продюсерский симбиоз без кабальных контрактов. Артист сохраняет 100% авторских прав и полную свободу слова.',
+        img: 'assets/images/album_4life_vinyl.jpg',
+        points: [
+          { title: '0% рутины для артиста', desc: 'Мы берем на себя видео, ИИ-графику, дистрибуцию, SMM и питчинг.' },
+          { title: 'Rev-Share модель', desc: 'Справедливое распределение прибыли от прироста стриминга и мерча.' },
+          { title: 'Sync в MMA и Кино', desc: 'Лицензирование треков в лиги единоборств, промоушены и видеоигры.' },
+          { title: 'Мировой прецедент', desc: 'Флагманский кейс вывода нишевого андеграунда на глобальные площадки.' }
+        ]
+      }
+    ];
+
     const DEFAULT_RELEASES = [
       {
         id: 'rel_4life',
         title: 'Командный альбом «4 LIFE»',
         subtitle: 'Лейбл: 100PRO Records • Сроки: Осень',
+        thumbnail: 'assets/images/album_4life_vinyl.jpg',
         progress: 65,
         items: [
           { text: 'Сведение и стем-мастеринг (-14 LUFS)', done: true },
@@ -1085,6 +1440,7 @@
         id: 'rel_steel',
         title: 'Клип «Так закалялась сталь»',
         subtitle: 'Официальное 4K видео-манифест • Сроки: Осень',
+        thumbnail: 'assets/images/hero_steel_hardcore.jpg',
         progress: 50,
         items: [
           { text: 'Съемка базового видеоматериала', done: true },
@@ -1097,6 +1453,7 @@
         id: 'rel_tiptop',
         title: 'Live в Tip Top Barbershop',
         subtitle: 'Камерный лайв-сет «для своих» • Сроки: Осень/Зима',
+        thumbnail: 'assets/images/tiptop_barbershop_live.jpg',
         progress: 25,
         items: [
           { text: 'Бронь локации и согласование света', done: true },
@@ -1109,6 +1466,7 @@
         id: 'rel_vtrnk',
         title: 'Эфиры на VTRNK Radio',
         subtitle: 'Регулярная медиа-фабрика • Постоянно',
+        thumbnail: 'assets/images/vtrnk_radio_studio.jpg',
         progress: 80,
         items: [
           { text: 'Прямые радиоэфиры и фристайлы', done: true },
@@ -1121,6 +1479,7 @@
         id: 'rel_madnekit',
         title: 'Сольный альбом Mad Nekit',
         subtitle: 'Полноформатный сольник • Сроки: Начало года',
+        thumbnail: 'assets/images/mad_nekit_producer.jpg',
         progress: 20,
         items: [
           { text: 'Отбор треклиста и авторских битов', done: true },
@@ -1215,7 +1574,7 @@
         id: 'f1',
         author: 'Продюсер (GTP)',
         date: '23 Октября 2026, 02:40',
-        text: 'Развернут центральный CRM-хаб Global Team Partners × LDS Inc. Структурированы 5 релизов, канбан-доска и хранилище ассетов.'
+        text: 'Развернут центральный CRM-хаб Global Team Partners × LDS Inc. с интерактивной презентацией и кинематографичными изображениями.'
       },
       {
         id: 'f2',
@@ -1228,6 +1587,7 @@
     const CRM = {
       state: {
         role: 'producer',
+        currentSlide: 0,
         releases: [],
         tasks: [],
         assets: [],
@@ -1237,7 +1597,7 @@
       },
 
       init() {
-        const saved = localStorage.getItem('gtp_lds_crm_state');
+        const saved = localStorage.getItem('gtp_lds_crm_state_v2');
         if (saved) {
           try {
             this.state = JSON.parse(saved);
@@ -1248,9 +1608,11 @@
           this.loadDefaults();
         }
         this.renderAll();
+        this.initKeyboardNav();
       },
 
       loadDefaults() {
+        this.state.currentSlide = 0;
         this.state.releases = JSON.parse(JSON.stringify(DEFAULT_RELEASES));
         this.state.tasks = JSON.parse(JSON.stringify(DEFAULT_TASKS));
         this.state.assets = JSON.parse(JSON.stringify(DEFAULT_ASSETS));
@@ -1259,11 +1621,11 @@
       },
 
       save() {
-        localStorage.setItem('gtp_lds_crm_state', JSON.stringify(this.state));
+        localStorage.setItem('gtp_lds_crm_state_v2', JSON.stringify(this.state));
       },
 
       switchTab(tabId) {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.nav-tabs .tab-btn').forEach(b => b.classList.remove('active'));
         document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
         
         event.currentTarget.classList.add('active');
@@ -1281,13 +1643,78 @@
       },
 
       renderAll() {
+        this.renderSlide();
         this.renderReleases();
         this.renderKanban();
         this.renderAssets();
         this.renderFeed();
       },
 
-      /* RELEASES */
+      /* ========================================================
+         PRESENTATION SLIDE CONTROLLER
+         ======================================================== */
+      renderSlide() {
+        const idx = this.state.currentSlide;
+        const s = PRESENTATION_SLIDES[idx];
+        if (!s) return;
+
+        document.getElementById('deckSlideIndicator').innerText = `Слайд 0${idx + 1} / 0${PRESENTATION_SLIDES.length} • ${s.title}`;
+        document.getElementById('slideEyebrow').innerText = s.eyebrow;
+        document.getElementById('slideHeading').innerText = s.title;
+        document.getElementById('slideSubtitle').innerText = s.subtitle;
+        document.getElementById('slideImg').src = s.img;
+
+        const pointsContainer = document.getElementById('slidePointsGrid');
+        pointsContainer.innerHTML = s.points.map(p => `
+          <div class="slide-point-card">
+            <div class="slide-point-title"><span>✦</span> ${p.title}</div>
+            <div class="slide-point-desc">${p.desc}</div>
+          </div>
+        `).join('');
+
+        const dotsContainer = document.getElementById('deckDots');
+        dotsContainer.innerHTML = PRESENTATION_SLIDES.map((_, i) => `
+          <button class="dot-btn ${i === idx ? 'active' : ''}" onclick="CRM.goToSlide(${i})" title="Слайд ${i + 1}"></button>
+        `).join('');
+      },
+
+      nextSlide() {
+        this.state.currentSlide = (this.state.currentSlide + 1) % PRESENTATION_SLIDES.length;
+        this.renderSlide();
+      },
+
+      prevSlide() {
+        this.state.currentSlide = (this.state.currentSlide - 1 + PRESENTATION_SLIDES.length) % PRESENTATION_SLIDES.length;
+        this.renderSlide();
+      },
+
+      goToSlide(index) {
+        this.state.currentSlide = index;
+        this.renderSlide();
+        document.getElementById('deckContainer').scrollIntoView({ behavior: 'smooth' });
+      },
+
+      toggleFullscreenDeck() {
+        const el = document.getElementById('deckContainer');
+        if (!document.fullscreenElement) {
+          el.requestFullscreen().catch(err => alert("Fullscreen error: " + err.message));
+        } else {
+          document.exitFullscreen();
+        }
+      },
+
+      initKeyboardNav() {
+        window.addEventListener('keydown', (e) => {
+          if (document.getElementById('tab-presentation').classList.contains('active')) {
+            if (e.key === 'ArrowRight') this.nextSlide();
+            if (e.key === 'ArrowLeft') this.prevSlide();
+          }
+        });
+      },
+
+      /* ========================================================
+         RELEASES WITH VISUAL THUMBNAILS
+         ======================================================== */
       renderReleases() {
         const container = document.getElementById('releasesContainer');
         if (!container) return;
@@ -1301,19 +1728,22 @@
 
           return `
             <div class="release-card">
-              <div class="release-header">
-                <div>
-                  <div class="release-title">${rel.title}</div>
-                  <div class="release-tagline">${rel.subtitle}</div>
+              ${rel.thumbnail ? `<img src="${rel.thumbnail}" class="release-thumbnail" alt="${rel.title}">` : ''}
+              <div class="release-card-body">
+                <div class="release-header">
+                  <div>
+                    <div class="release-title">${rel.title}</div>
+                    <div class="release-tagline">${rel.subtitle}</div>
+                  </div>
+                  <span class="badge ${rel.progress === 100 ? 'badge-green' : 'badge-rust'}">${rel.progress}%</span>
                 </div>
-                <span class="badge ${rel.progress === 100 ? 'badge-green' : 'badge-rust'}">${rel.progress}%</span>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill" style="width: ${rel.progress}%;"></div>
+                </div>
+                <ul class="release-checklist">
+                  ${checklistHtml}
+                </ul>
               </div>
-              <div class="progress-bar-bg">
-                <div class="progress-bar-fill" style="width: ${rel.progress}%;"></div>
-              </div>
-              <ul class="release-checklist">
-                ${checklistHtml}
-              </ul>
             </div>
           `;
         }).join('');
@@ -1331,7 +1761,9 @@
         this.renderReleases();
       },
 
-      /* KANBAN */
+      /* ========================================================
+         KANBAN CRM
+         ======================================================== */
       renderKanban() {
         const cols = { backlog: [], gtp_progress: [], artist_action: [], done: [] };
         let filtered = this.state.tasks;
@@ -1459,7 +1891,9 @@
         this.renderKanban();
       },
 
-      /* ASSETS */
+      /* ========================================================
+         ASSETS
+         ======================================================== */
       renderAssets() {
         const container = document.getElementById('assetsContainer');
         if (!container) return;
@@ -1515,7 +1949,9 @@
         this.renderAssets();
       },
 
-      /* FEED */
+      /* ========================================================
+         FEED
+         ======================================================== */
       renderFeed() {
         const container = document.getElementById('feedTimeline');
         if (!container) return;
@@ -1549,7 +1985,9 @@
         this.renderFeed();
       },
 
-      /* EXPORT & IMPORT */
+      /* ========================================================
+         BACKUP & UTILS
+         ======================================================== */
       exportData() {
         const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.state, null, 2));
         const downloadAnchor = document.createElement('a');
